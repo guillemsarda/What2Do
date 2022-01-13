@@ -1,15 +1,28 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Pressable,
+} from "react-native";
 import { StackScreenProps } from "@react-navigation/stack";
 
 export const LogIn = ({ navigation, route }) => {
   return (
     <View style={styles.general}>
-      <Text>{route.params.example}</Text>
+      <Text>Email</Text>
+      <TextInput />
+      <Text>Password</Text>
+      <TextInput />
+      <Pressable>
+        <Text>Sign Up</Text>
+      </Pressable>
       <Button
         title="Back"
         onPress={() => {
-          navigation.navigate("Screen1");
+          navigation.navigate("Welcome");
         }}
       />
     </View>
