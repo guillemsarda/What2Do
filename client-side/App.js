@@ -2,9 +2,11 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+
 import { Welcome } from "./components/Welcome";
 import { LogIn } from "./components/LogIn";
-import { useFonts } from "expo-font";
+import { SignUp } from "./components/SignUp";
 
 const Root = createStackNavigator();
 
@@ -26,11 +28,12 @@ export default function App() {
     <NavigationContainer>
       <Root.Navigator>
         <Root.Screen
-          name="Screen1"
+          name="Welcome"
           component={Welcome}
           options={{ headerShown: false }}
         />
         <Root.Screen name="LogIn" component={LogIn} />
+        <Root.Screen name="SignUp" component={SignUp} />
       </Root.Navigator>
     </NavigationContainer>
   );
