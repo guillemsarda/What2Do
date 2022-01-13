@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
@@ -33,7 +33,11 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Root.Screen name="LogIn" component={LogIn} />
-        <Root.Screen name="SignUp" component={SignUp} />
+        <Root.Screen
+          name="SignUp"
+          component={SignUp}
+          options={{ headerShown: false }}
+        />
       </Root.Navigator>
     </NavigationContainer>
   );
