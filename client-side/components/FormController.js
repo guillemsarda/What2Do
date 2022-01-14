@@ -9,7 +9,12 @@ export const FormController = ({ formEntry, errors, control }) => {
         control={control}
         rules={{ required: true }}
         render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput onBlur={onBlur} onChangeText={onChange} value={value} />
+          <TextInput
+            onBlur={onBlur}
+            onChangeText={onChange}
+            value={value}
+            style={styles.formInput}
+          />
         )}
         name={formEntry}
       />
