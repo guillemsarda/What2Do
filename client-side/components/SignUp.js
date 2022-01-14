@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Pressable,
-  SafeAreaView,
-  Text,
-  View,
-  ScrollView,
-  KeyboardAvoidingView,
-} from "react-native";
+import { Pressable, SafeAreaView, Text, View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { Picker } from "@react-native-picker/picker";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -15,6 +8,8 @@ import { Personal } from "./SignUpPersonal";
 import { Firm } from "./SignUpFirm";
 import { styles } from "./FormStyleSheet";
 import { FormController } from "./FormController";
+
+import { apiService } from "../apiService";
 
 export const SignUp = ({ navigation }) => {
   const [selectedType, setSelectedType] = useState("Unknown");
@@ -35,13 +30,16 @@ export const SignUp = ({ navigation }) => {
       password: "",
     },
   });
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
-  };
   useEffect(() => {
     setValue("type", selectedType);
   });
+
+  // On Submit function:
+  const onSubmit = (userInfo) => {
+    apiService.signUp(userInfo);
+    reset();
+    navigation.navigate("Home");
+  };
 
   // Function to render the corresponding users form:
   function userForm() {

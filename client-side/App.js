@@ -1,5 +1,3 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import * as Font from "expo-font";
@@ -8,6 +6,7 @@ import { Welcome } from "./components/Welcome";
 import { LogIn } from "./components/LogIn";
 import { SignUp } from "./components/SignUp";
 import { useState } from "react";
+import { Home } from "./components/Home";
 
 const Root = createStackNavigator();
 
@@ -42,6 +41,11 @@ export default function App() {
         <Root.Screen
           name="SignUp"
           component={SignUp}
+          options={{ headerShown: false }}
+        />
+        <Root.Screen
+          name="Home"
+          component={Home}
           options={{ headerShown: false }}
         />
       </Root.Navigator>
