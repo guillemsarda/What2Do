@@ -62,42 +62,19 @@ export const SignUp = ({ navigation }) => {
           <Personal control={control} errors={errors} />
         )}
         <Text style={styles.formLabel}>Phone Number</Text>
-        <Controller
+        <FormController
           control={control}
-          rules={{ required: true }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInput onBlur={onBlur} onChangeText={onChange} value={value} />
-          )}
-          name="phoneNumber"
+          errors={errors}
+          formEntry="phoneNumber"
         />
-        {errors.phoneNumber && <Text>This is required.</Text>}
         <Text style={styles.formLabel}>Email</Text>
-        <Controller
-          control={control}
-          rules={{ required: true }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInput onBlur={onBlur} onChangeText={onChange} value={value} />
-          )}
-          name="email"
-        />
-        {errors.email && <Text>This is required.</Text>}
+        <FormController control={control} errors={errors} formEntry="email" />
         <Text style={styles.formLabel}>Password</Text>
-        <Controller
+        <FormController
           control={control}
-          rules={{ required: true }}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <TextInput
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              clearButtonMode="always"
-              textContentType="password"
-              caretHidden={true}
-            />
-          )}
-          name="password"
+          errors={errors}
+          formEntry="password"
         />
-        {errors.password && <Text>This is required.</Text>}
         <Pressable title="Submit" onPress={handleSubmit(onSubmit)}>
           <Text>Sign Up</Text>
         </Pressable>

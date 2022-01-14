@@ -3,29 +3,15 @@ import { Controller } from "react-hook-form";
 import { TextInput, Text, View } from "react-native";
 import { styles } from "./FormStyleSheet";
 
+import { FormController } from "./FormController";
+
 export const Firm = ({ control, errors }) => {
   return (
     <View>
       <Text style={styles.formLabel}>Firm's Name</Text>
-      <Controller
-        control={control}
-        rules={{ required: true }}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput onBlur={onBlur} onChangeText={onChange} value={value} />
-        )}
-        name="name"
-      />
-      {errors.name && <Text>This is required.</Text>}
+      <FormController control={control} errors={errors} formEntry="name" />
       <Text style={styles.formLabel}>Address</Text>
-      <Controller
-        control={control}
-        rules={{ required: true }}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <TextInput onBlur={onBlur} onChangeText={onChange} value={value} />
-        )}
-        name="address"
-      />
-      {errors.address && <Text>This is required.</Text>}
+      <FormController control={control} errors={errors} formEntry="address" />
     </View>
   );
 };
