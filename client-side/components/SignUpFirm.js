@@ -1,22 +1,31 @@
 import React, { useState } from "react";
-import {
-  TextInput,
-  Pressable,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import { Picker } from "@react-native-picker/picker";
+import { Controller } from "react-hook-form";
+import { TextInput, Text, View } from "react-native";
 import { styles } from "./FormStyleSheet";
 
-export const Firm = () => {
+export const Firm = ({ control, errors }) => {
   return (
     <View>
       <Text style={styles.formLabel}>Firm's Name</Text>
-      <TextInput />
+      <Controller
+        control={control}
+        rules={{ required: true }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput onBlur={onBlur} onChangeText={onChange} value={value} />
+        )}
+        name="name"
+      />
+      {errors.name && <Text>This is required.</Text>}
       <Text style={styles.formLabel}>Address</Text>
-      <TextInput />
+      <Controller
+        control={control}
+        rules={{ required: true }}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <TextInput onBlur={onBlur} onChangeText={onChange} value={value} />
+        )}
+        name="address"
+      />
+      {errors.address && <Text>This is required.</Text>}
     </View>
   );
 };

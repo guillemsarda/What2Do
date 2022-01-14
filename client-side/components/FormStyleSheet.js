@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "Inter-Medium",
-    fontSize: 60,
+    fontSize: 50,
     fontWeight: "500",
     textAlign: "center",
     marginTop: "15%",
