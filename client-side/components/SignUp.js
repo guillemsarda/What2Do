@@ -26,30 +26,32 @@ export const SignUp = ({ navigation }) => {
   // const { control, handleSubmit } = useForm();
 
   return (
-    <SafeAreaView style={styles.general}>
-      <Text>Sign Me Up</Text>
-      <Text>Type</Text>
-      <Picker
-        selectedValue={selectedType}
-        onValueChange={(itemValue, itemIndex) => setSelectedType(itemValue)}
-      >
-        <Picker.Item label="Firm" value="Firm" color="Red" />
-        <Picker.Item label="Personal" value="Personal" />
-      </Picker>
-      {selectedType === "Personal" ? <Personal /> : <Firm />}
-      <Text>Phone Number</Text>
-      <TextInput />
-      <Text>Email</Text>
-      <TextInput />
-      <Text>Password</Text>
-      <TextInput
-        clearButtonMode="always"
-        textContentType="password"
-        caretHidden={true}
-      />
-      <Pressable>
-        <Text>Sign Up</Text>
-      </Pressable>
+    <SafeAreaView style={styles.screen}>
+      <Text style={styles.title}>Sign Me Up</Text>
+      <View style={styles.form}>
+        <Text>Type</Text>
+        <Picker
+          selectedValue={selectedType}
+          onValueChange={(itemValue, itemIndex) => setSelectedType(itemValue)}
+        >
+          <Picker.Item label="Firm" value="Firm" color="Red" />
+          <Picker.Item label="Personal" value="Personal" />
+        </Picker>
+        {selectedType === "Personal" ? <Personal /> : <Firm />}
+        <Text>Phone Number</Text>
+        <TextInput />
+        <Text>Email</Text>
+        <TextInput />
+        <Text>Password</Text>
+        <TextInput
+          clearButtonMode="always"
+          textContentType="password"
+          caretHidden={true}
+        />
+        <Pressable>
+          <Text>Sign Up</Text>
+        </Pressable>
+      </View>
       <Pressable
         title="Back"
         onPress={() => {
@@ -63,7 +65,20 @@ export const SignUp = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  general: {
-    backgroundColor: "white",
+  screen: {
+    backgroundColor: "#ffffff",
+    flex: 1,
+  },
+  title: {
+    fontFamily: "Inter-Medium, sans-serif",
+    fontSize: 60,
+    fontWeight: "500",
+    textAlign: "center",
+    marginTop: "15%",
+    marginBottom: "15%",
+  },
+  form: {
+    backgroundColor: "#DDECFE",
+    padding: "5%",
   },
 });
