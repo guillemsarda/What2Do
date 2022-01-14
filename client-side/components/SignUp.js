@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { Picker } from "@react-native-picker/picker";
 import { Personal } from "./SignUpPersonal";
 import { Firm } from "./SignUpFirm";
+import { styles } from "./FormStyleSheet";
 
 export const SignUp = ({ navigation }) => {
   const [form, setForm] = useState({
@@ -29,7 +30,7 @@ export const SignUp = ({ navigation }) => {
     <SafeAreaView style={styles.screen}>
       <Text style={styles.title}>Sign Me Up</Text>
       <View style={styles.form}>
-        <Text>Type</Text>
+        <Text style={styles.formLabel}>Type</Text>
         <Picker
           selectedValue={selectedType}
           onValueChange={(itemValue, itemIndex) => setSelectedType(itemValue)}
@@ -38,11 +39,11 @@ export const SignUp = ({ navigation }) => {
           <Picker.Item label="Personal" value="Personal" />
         </Picker>
         {selectedType === "Personal" ? <Personal /> : <Firm />}
-        <Text>Phone Number</Text>
+        <Text style={styles.formLabel}>Phone Number</Text>
         <TextInput />
-        <Text>Email</Text>
+        <Text style={styles.formLabel}>Email</Text>
         <TextInput />
-        <Text>Password</Text>
+        <Text style={styles.formLabel}>Password</Text>
         <TextInput
           clearButtonMode="always"
           textContentType="password"
@@ -64,21 +65,3 @@ export const SignUp = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    backgroundColor: "#ffffff",
-    flex: 1,
-  },
-  title: {
-    fontFamily: "Inter-Medium, sans-serif",
-    fontSize: 60,
-    fontWeight: "500",
-    textAlign: "center",
-    marginTop: "15%",
-    marginBottom: "15%",
-  },
-  form: {
-    backgroundColor: "#DDECFE",
-    padding: "5%",
-  },
-});

@@ -8,13 +8,14 @@ import {
   View,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
+import { styles } from "./FormStyleSheet";
 
 export const Personal = () => {
   return (
     <View>
-      <Text>Name</Text>
+      <Text style={styles.formLabel}>Name</Text>
       <TextInput />
-      <Text>Surname</Text>
+      <Text style={styles.formLabel}>Surname</Text>
       <TextInput />
     </View>
   );

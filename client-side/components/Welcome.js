@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontFamily: "Inter-Medium, sans-serif",
+    fontFamily: "Inter-Medium",
     fontSize: 60,
     fontWeight: "500",
     textAlign: "center",
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     marginBottom: "15%",
   },
   subtitle: {
-    fontFamily: "Inter-Medium, sans-serif",
+    fontFamily: "Inter-Medium",
     fontSize: 30,
     textAlign: "center",
     marginTop: "5%",
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: "60%",
-    height: "180%",
+    height: "30%",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 15,
