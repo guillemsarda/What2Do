@@ -1,9 +1,9 @@
 "use strict";
 
 const { Router } = require("express");
-const test = require("./controllers/controller");
+const userController = require("./controllers/controller");
 const router = new Router();
 
-router.get("/", test);
+router.post("/users", userController.signUp);
 
 module.exports = router;
