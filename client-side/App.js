@@ -1,27 +1,33 @@
 import { StatusBar } from "expo-status-bar";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { useFonts } from "expo-font";
+import * as Font from "expo-font";
 
 import { Welcome } from "./components/Welcome";
 import { LogIn } from "./components/LogIn";
 import { SignUp } from "./components/SignUp";
+import { useState } from "react";
 
 const Root = createStackNavigator();
 
 export default function App() {
-  const [loaded] = useFonts({
-    "Inter-Black": require("./assets/static/Inter-Black.ttf"),
-    "Inter-Bold": require("./assets/static/Inter-Bold.ttf"),
-    "Inter-ExtraBold": require("./assets/static/Inter-ExtraBold.ttf"),
-    "Inter-ExtraLight": require("./assets/static/Inter-ExtraLight.ttf"),
-    "Inter-Light": require("./assets/static/Inter-Light.ttf"),
-    "Inter-Medium": require("./assets/static/Inter-Medium.ttf"),
-    "Inter-Regular": require("./assets/static/Inter-Regular.ttf"),
-    "Inter-SemiBold": require("./assets/static/Inter-SemiBold.ttf"),
-    "Inter-Thin": require("./assets/static/Inter-Thin.ttf"),
-  });
+  const [loaded, setLoaded] = useState(false);
+  async function loadFonts() {
+    await Font.loadAsync({
+      "Inter-Black": require("./assets/static/Inter-Black.ttf"),
+      "Inter-Bold": require("./assets/static/Inter-Bold.ttf"),
+      "Inter-ExtraBold": require("./assets/static/Inter-ExtraBold.ttf"),
+      "Inter-ExtraLight": require("./assets/static/Inter-ExtraLight.ttf"),
+      "Inter-Light": require("./assets/static/Inter-Light.ttf"),
+      "Inter-Medium": require("./assets/static/Inter-Medium.ttf"),
+      "Inter-Regular": require("./assets/static/Inter-Regular.ttf"),
+      "Inter-SemiBold": require("./assets/static/Inter-SemiBold.ttf"),
+      "Inter-Thin": require("./assets/static/Inter-Thin.ttf"),
+    });
+    setLoaded(true);
+  }
+  loadFonts();
   if (!loaded) return null;
 
   return (
