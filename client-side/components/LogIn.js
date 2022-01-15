@@ -26,7 +26,7 @@ export const LogIn = ({ navigation, route }) => {
       password: "",
     },
   });
-  // On Submit function
+  // On Submit function:
   const onSubmit = async (userInfo) => {
     const found = await apiService.signIn(userInfo);
     if (found) {

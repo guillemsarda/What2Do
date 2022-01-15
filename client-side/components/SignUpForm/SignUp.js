@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Pressable, SafeAreaView, Text, View } from "react-native";
+import { Alert, Pressable, SafeAreaView, Text, View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { Picker } from "@react-native-picker/picker";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
@@ -36,10 +36,19 @@ export const SignUp = ({ navigation }) => {
   });
 
   // On Submit function:
-  const onSubmit = (userInfo) => {
-    apiService.signUp(userInfo);
-    reset();
-    navigation.navigate("Home");
+  const onSubmit = async (userInfo) => {
+    const notExist = await apiService.signUp(userInfo);
+    if (!notExist) {
+      reset({ ...userInfo, email: "", password: "" });
+      Alert.alert(
+        "Email address in use",
+        "Please, go to the 'Sign Me In' page or choose another email address.",
+        [{ text: "OK" }]
+      );
+    } else {
+      reset();
+      navigation.navigate("Home");
+    }
   };
 
   // Function to render the corresponding users form:

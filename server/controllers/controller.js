@@ -4,9 +4,19 @@ const userController = {};
 
 userController.signUp = async (req, res) => {
   try {
-    const data = await UserData.create(req.body);
-    res.status(201);
-    res.send(data);
+    const exist = await UserData.findAll({
+      where: {
+        email: req.body.email,
+      },
+    });
+    if (exist.length) {
+      res.status(401);
+      res.send(null);
+    } else {
+      const data = await UserData.create(req.body);
+      res.status(201);
+      res.send(data);
+    }
   } catch (error) {
     res.send(error);
   }
