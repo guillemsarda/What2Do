@@ -37,7 +37,11 @@ export default function App() {
           component={Welcome}
           options={{ headerShown: false }}
         />
-        <Root.Screen name="LogIn" component={LogIn} />
+        <Root.Screen
+          name="LogIn"
+          component={LogIn}
+          options={{ headerShown: false }}
+        />
         <Root.Screen
           name="SignUp"
           component={SignUp}

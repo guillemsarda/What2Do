@@ -1,36 +1,78 @@
-import { StatusBar } from "expo-status-bar";
 import {
-  Button,
   StyleSheet,
   Text,
   View,
-  TextInput,
   Pressable,
+  SafeAreaView,
+  Alert,
 } from "react-native";
-import { StackScreenProps } from "@react-navigation/stack";
+import { Ionicons } from "@expo/vector-icons";
+import { useForm, Controller } from "react-hook-form";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+
+import { styles } from "./SignUpForm/FormStyleSheet";
+import { FormController } from "./SignUpForm/FormController";
+import { apiService } from "../apiService";
 
 export const LogIn = ({ navigation, route }) => {
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+  // On Submit function
+  const onSubmit = async (userInfo) => {
+    const found = await apiService.signIn(userInfo);
+    if (found) {
+      reset();
+      navigation.navigate("Home");
+    } else {
+      reset({ email: userInfo.email, password: "" });
+      Alert.alert("Wrong email/password", "Please, try again", [
+        { text: "OK" },
+      ]);
+    }
+  };
+
   return (
-    <View style={styles.general}>
-      <Text>Email</Text>
-      <TextInput />
-      <Text>Password</Text>
-      <TextInput />
-      <Pressable>
-        <Text>Sign Up</Text>
-      </Pressable>
-      <Button
-        title="Back"
-        onPress={() => {
-          navigation.navigate("Welcome");
-        }}
-      />
-    </View>
+    <SafeAreaView style={styles.screen}>
+      <KeyboardAwareScrollView>
+        <Pressable
+          title="Back"
+          onPress={() => {
+            navigation.navigate("Welcome");
+          }}
+          style={styles.backButton}
+        >
+          <Ionicons name="ios-return-up-back" size={40} color="#8BC6FD" />
+        </Pressable>
+        <Text style={styles.title}>Sign Me In</Text>
+        <View style={[styles.form, { backgroundColor: "#D8F1FC" }]}>
+          <Text style={styles.formLabel}>Email</Text>
+          <FormController control={control} errors={errors} formEntry="email" />
+          <Text style={styles.formLabel}>Password</Text>
+          <FormController
+            control={control}
+            errors={errors}
+            formEntry="password"
+          />
+          <View style={styles.submitView}>
+            <Pressable
+              title="Submit"
+              onPress={handleSubmit(onSubmit)}
+              style={styles.submit}
+            >
+              <Text style={styles.submitText}>Sign In</Text>
+            </Pressable>
+          </View>
+        </View>
+      </KeyboardAwareScrollView>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  general: {
-    backgroundColor: "white",
-  },
-});

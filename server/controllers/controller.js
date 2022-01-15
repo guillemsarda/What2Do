@@ -12,4 +12,25 @@ userController.signUp = async (req, res) => {
   }
 };
 
+userController.signIn = async (req, res) => {
+  try {
+    const found = await UserData.findAll({
+      where: {
+        email: req.body.email,
+        password: req.body.password,
+      },
+    });
+    if (found.length) {
+      res.status(200);
+      res.send(found);
+    } else {
+      res.status(401);
+      res.send(null);
+    }
+  } catch (error) {
+    res.status(400);
+    res.send(error);
+  }
+};
+
 module.exports = userController;
