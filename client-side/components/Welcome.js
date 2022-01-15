@@ -1,13 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import {
-  Button,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-} from "react-native";
-import { StackScreenProps } from "@react-navigation/stack";
+import { Pressable, StyleSheet, Text, View, SafeAreaView } from "react-native";
 
 export const Welcome = ({ navigation }) => {
   return (
@@ -18,7 +9,7 @@ export const Welcome = ({ navigation }) => {
         <Pressable
           title="Yes. Sign Me In"
           onPress={() => {
-            navigation.navigate("LogIn", { example: "YESSS" });
+            navigation.navigate("SignIn", { example: "YESSS" });
           }}
           style={[styles.button, styles.signin]}
         >

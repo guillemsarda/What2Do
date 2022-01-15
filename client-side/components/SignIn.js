@@ -1,20 +1,13 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  SafeAreaView,
-  Alert,
-} from "react-native";
+import { Text, View, Pressable, SafeAreaView, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import { styles } from "./SignUpForm/FormStyleSheet";
 import { FormController } from "./SignUpForm/FormController";
 import { apiService } from "../apiService";
 
-export const LogIn = ({ navigation, route }) => {
+export const SignIn = ({ navigation }) => {
   const {
     control,
     handleSubmit,
@@ -29,6 +22,7 @@ export const LogIn = ({ navigation, route }) => {
   // On Submit function:
   const onSubmit = async (userInfo) => {
     const found = await apiService.signIn(userInfo);
+    console.log(found);
     if (found) {
       reset();
       navigation.navigate("Home");

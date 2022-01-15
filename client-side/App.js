@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import * as Font from "expo-font";
 
 import { Welcome } from "./components/Welcome";
-import { LogIn } from "./components/LogIn";
+import { SignIn } from "./components/SignIn";
 import { SignUp } from "./components/SignUpForm/SignUp";
 import { useState } from "react";
 import { Home } from "./components/Home";
@@ -38,8 +38,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Root.Screen
-          name="LogIn"
-          component={LogIn}
+          name="SignIn"
+          component={SignIn}
           options={{ headerShown: false }}
         />
         <Root.Screen
