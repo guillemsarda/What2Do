@@ -5,7 +5,7 @@ export const Welcome = ({ navigation }) => {
     <SafeAreaView style={styles.screen}>
       <Text style={styles.title}>What2Do</Text>
       <Text style={styles.subtitle}>Do you already have an account?</Text>
-      <View style={styles.view_buttons}>
+      <View style={styles.viewButtons}>
         <Pressable
           title="Yes. Sign Me In"
           onPress={() => {
@@ -13,7 +13,7 @@ export const Welcome = ({ navigation }) => {
           }}
           style={[styles.button, styles.signin]}
         >
-          <Text style={styles.text_button}>Yes. Sign Me In.</Text>
+          <Text style={styles.textButton}>Yes. Sign Me In.</Text>
         </Pressable>
         <Pressable
           onPress={() => {
@@ -21,7 +21,7 @@ export const Welcome = ({ navigation }) => {
           }}
           style={[styles.button, styles.signup]}
         >
-          <Text style={styles.text_button}>No. Sign Me Up.</Text>
+          <Text style={styles.textButton}>No. Sign Me Up.</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     marginTop: "5%",
     marginBottom: "8%",
   },
-  view_buttons: {
+  viewButtons: {
     alignItems: "center",
   },
   button: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginBottom: "3%",
   },
-  text_button: {
+  textButton: {
     fontFamily: "Inter-Light",
     fontSize: 20,
   },
