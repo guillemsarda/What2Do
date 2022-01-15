@@ -22,10 +22,9 @@ export const SignIn = ({ navigation }) => {
   // On Submit function:
   const onSubmit = async (userInfo) => {
     const found = await apiService.signIn(userInfo);
-    console.log(found);
     if (found) {
       reset();
-      navigation.navigate("Home");
+      navigation.navigate("Home", { credentials: found });
     } else {
       reset({ email: userInfo.email, password: "" });
       Alert.alert("Wrong email/password", "Please, try again", [

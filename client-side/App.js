@@ -12,6 +12,7 @@ const Root = createStackNavigator();
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
+
   async function loadFonts() {
     await Font.loadAsync({
       "Inter-Black": require("./assets/static/Inter-Black.ttf"),
