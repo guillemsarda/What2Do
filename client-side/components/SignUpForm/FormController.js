@@ -1,5 +1,6 @@
 import { Controller } from "react-hook-form";
 import { TextInput, Text, View } from "react-native";
+
 import { styles } from "./FormStyleSheet";
 
 export const FormController = ({ formEntry, errors, control }) => {

@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { Controller } from "react-hook-form";
-import { TextInput, Text, View } from "react-native";
-import { styles } from "./FormStyleSheet";
+import React from "react";
+import { Text, View } from "react-native";
 
-import { FormController } from "./FormController";
+import { styles } from "../FormStyleSheet";
+import { FormController } from "../FormController";
 
 export const Firm = ({ control, errors }) => {
   return (

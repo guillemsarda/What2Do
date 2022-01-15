@@ -5,12 +5,12 @@ import { Picker } from "@react-native-picker/picker";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Ionicons } from "@expo/vector-icons";
 
-import { Personal } from "./SignUpPersonal";
-import { Firm } from "./SignUpFirm";
+import { Personal } from "./UserFormFeats/SignUpPersonal";
+import { Firm } from "./UserFormFeats/SignUpFirm";
 import { styles } from "./FormStyleSheet";
 import { FormController } from "./FormController";
 
-import { apiService } from "../apiService";
+import { apiService } from "../../apiService";
 
 export const SignUp = ({ navigation }) => {
   const [selectedType, setSelectedType] = useState("Unknown");

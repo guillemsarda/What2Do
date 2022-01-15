@@ -4,7 +4,7 @@ import * as Font from "expo-font";
 
 import { Welcome } from "./components/Welcome";
 import { LogIn } from "./components/LogIn";
-import { SignUp } from "./components/SignUp";
+import { SignUp } from "./components/SignUpForm/SignUp";
 import { useState } from "react";
 import { Home } from "./components/Home";
 
