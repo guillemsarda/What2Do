@@ -5,13 +5,19 @@ export const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     flex: 1,
   },
+  backButton: {
+    width: "12%",
+    paddingVertical: "2%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: "2%",
+  },
   title: {
     fontFamily: "Inter-Medium",
     fontSize: 50,
     fontWeight: "500",
     textAlign: "center",
-    marginTop: "5%",
-    marginBottom: "8%",
+    marginBottom: "10%",
   },
   form: {
     backgroundColor: "#DDECFE",
@@ -60,7 +66,6 @@ export const styles = StyleSheet.create({
     height: 115,
     alignItems: "center",
     backgroundColor: "white",
-    borderColor: "#F4F9FF",
   },
   pickerItem: {
     height: "100%",

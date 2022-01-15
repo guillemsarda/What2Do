@@ -3,6 +3,7 @@ import { Pressable, SafeAreaView, Text, View } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { Picker } from "@react-native-picker/picker";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { Ionicons } from "@expo/vector-icons";
 
 import { Personal } from "./SignUpPersonal";
 import { Firm } from "./SignUpFirm";
@@ -58,8 +59,9 @@ export const SignUp = ({ navigation }) => {
           onPress={() => {
             navigation.navigate("Welcome");
           }}
+          style={styles.backButton}
         >
-          <Text>Back</Text>
+          <Ionicons name="ios-return-up-back" size={40} color="#8BC6FD" />
         </Pressable>
         <Text style={styles.title}>Sign Me Up</Text>
         <View style={styles.form}>
