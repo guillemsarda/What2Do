@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 export const homeStyles = StyleSheet.create({
+  titleView: { alignItems: "center" },
   buttonsView: {
     height: "100%",
     width: "100%",
@@ -18,4 +19,9 @@ export const homeStyles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonText: { fontFamily: "Inter-SemiBold", fontSize: 20 },
+  logout: {
+    alignItems: "flex-end",
+    marginRight: "5%",
+    paddingVertical: "2%",
+  },
 });

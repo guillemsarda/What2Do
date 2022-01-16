@@ -1,4 +1,5 @@
-import { SafeAreaView, Text, View, StyleSheet, Pressable } from "react-native";
+import { SafeAreaView, Text, View, Pressable, Alert } from "react-native";
+import { SimpleLineIcons } from "@expo/vector-icons";
 
 import { HomeButtons } from "./HomeButtons";
 import { homeStyles } from "./HomeStyleSheet";
@@ -8,15 +9,35 @@ export const Home = ({ navigation, route }) => {
   const credentials = route.params;
 
   return (
-    <SafeAreaView style={[styles.screen, { alignItems: "center" }]}>
-      <Text
-        style={[
-          styles.title,
-          { width: "80%", textAlign: "center", marginTop: "12%" },
-        ]}
+    <SafeAreaView style={[styles.screen]}>
+      <Pressable
+        onPress={() => {
+          Alert.alert("Are you sure you want to sign out?", null, [
+            {
+              text: "Yes",
+              onPress: () => {
+                navigation.navigate("Welcome");
+              },
+              style: "cancel",
+            },
+            { text: "No" },
+          ]);
+          //navigation.navigate("Welcome");
+        }}
+        style={homeStyles.logout}
       >
-        Hello, {credentials.name}! 🎉
-      </Text>
+        <SimpleLineIcons name="logout" size={25} color="black" />
+      </Pressable>
+      <View style={homeStyles.titleView}>
+        <Text
+          style={[
+            styles.title,
+            { width: "80%", textAlign: "center", marginTop: "3%" },
+          ]}
+        >
+          Hello, {credentials.name}! 🎉
+        </Text>
+      </View>
       <View style={homeStyles.buttonsView}>
         <HomeButtons
           title="My Profile"
