@@ -47,7 +47,7 @@ export const SignUp = ({ navigation }) => {
       );
     } else {
       reset();
-      navigation.navigate("Home", { credentials: found });
+      navigation.navigate("MainApp", { credentials: found });
     }
   };
 

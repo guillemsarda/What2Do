@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 15,
-    marginBottom: "3%",
+    marginBottom: "5%",
   },
   textButton: {
     fontFamily: "Inter-Light",

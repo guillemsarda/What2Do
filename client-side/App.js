@@ -6,7 +6,7 @@ import { Welcome } from "./components/Welcome";
 import { SignIn } from "./components/SignIn";
 import { SignUp } from "./components/SignUpForm/SignUp";
 import { useState } from "react";
-import { Home } from "./components/Home";
+import { MainApp } from "./components/MainApp";
 
 const Root = createStackNavigator();
 
@@ -32,27 +32,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Root.Navigator>
-        <Root.Screen
-          name="Welcome"
-          component={Welcome}
-          options={{ headerShown: false }}
-        />
-        <Root.Screen
-          name="SignIn"
-          component={SignIn}
-          options={{ headerShown: false }}
-        />
-        <Root.Screen
-          name="SignUp"
-          component={SignUp}
-          options={{ headerShown: false }}
-        />
-        <Root.Screen
-          name="Home"
-          component={Home}
-          options={{ headerShown: false }}
-        />
+      <Root.Navigator screenOptions={{ headerShown: false }}>
+        <Root.Screen name="Welcome" component={Welcome} />
+        <Root.Screen name="SignIn" component={SignIn} />
+        <Root.Screen name="SignUp" component={SignUp} />
+        <Root.Screen name="MainApp" component={MainApp} />
       </Root.Navigator>
     </NavigationContainer>
   );

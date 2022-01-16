@@ -1,4 +1,4 @@
-const baseURL = "http://192.168.1.232:3000";
+const baseURL = /*"http://192.168.1.232:3000";*/ "http://192.168.0.93:3000"; //Casa IP Address
 
 export const apiService = {};
 

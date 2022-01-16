@@ -24,7 +24,7 @@ export const SignIn = ({ navigation }) => {
     const found = await apiService.signIn(userInfo);
     if (found) {
       reset();
-      navigation.navigate("Home", { credentials: found });
+      navigation.navigate("MainApp", { credentials: found });
     } else {
       reset({ email: userInfo.email, password: "" });
       Alert.alert("Wrong email/password", "Please, try again", [
