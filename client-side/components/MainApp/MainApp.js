@@ -1,5 +1,4 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
 import { useState } from "react";
 
 import { Home } from "./Home";

@@ -6,7 +6,7 @@ import { Welcome } from "./components/Welcome";
 import { SignIn } from "./components/SignIn";
 import { SignUp } from "./components/SignUpForm/SignUp";
 import { useState } from "react";
-import { MainApp } from "./components/MainApp";
+import { MainApp } from "./components/MainApp/MainApp";
 
 const Root = createStackNavigator();
 

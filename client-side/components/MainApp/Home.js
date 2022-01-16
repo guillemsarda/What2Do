@@ -2,7 +2,7 @@ import { SafeAreaView, Text, View, StyleSheet, Pressable } from "react-native";
 
 import { HomeButtons } from "./HomeButtons";
 import { homeStyles } from "./HomeStyleSheet";
-import { styles } from "./SignUpForm/FormStyleSheet";
+import { styles } from "../SignUpForm/FormStyleSheet";
 
 export const Home = ({ navigation, route }) => {
   const credentials = route.params;
