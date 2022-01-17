@@ -33,9 +33,18 @@ export const LaunchEvent = ({ navigation, route }) => {
       imageLink: "",
     },
   });
-  const onSubmit = (data) => {
-    console.log(data);
+
+  // On Submit function:
+  const onSubmit = async (data) => {
+    const source = {
+      uri: data.imageLink.uri,
+      type: data.imageLink.type,
+      name: "banana.jpeg",
+    };
+    const imageLink = await cloudinaryUpload(source);
+    console.log({ ...data, imageLink });
   };
+
   // Datetime picker set up:
   const [date, setDate] = useState(new Date());
 
@@ -49,18 +58,41 @@ export const LaunchEvent = ({ navigation, route }) => {
   });
 
   //Image Picker set up:
-  const [image, setImage] = useState(null);
+  const [imageURI, setImageURI] = useState("");
 
   const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
+    let photo = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
     });
-    console.log(result);
-    if (!result.cancelled) {
-      setImage(result.uri);
+
+    if (!photo.cancelled) {
+      setValue("imageLink", photo); // We set the ImageLink value to the whole object to access its properties it later
+      setImageURI(photo.uri); // We get the image from the local URI to display it
+    }
+  };
+
+  // Function to upload the image picked to Cloudinary:
+  const cloudinaryUpload = async (photo) => {
+    const data = new FormData();
+    data.append("file", photo);
+    data.append("upload_preset", "What2DoApp");
+    data.append("cloud_name", "dhq0teliy");
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dhq0teliy/image/upload",
+        {
+          method: "post",
+          body: data,
+        }
+      );
+      const data_1 = await res.json(); // We block the upload process to receive the data
+      setValue("imageLink", data_1.secure_url);
+      return data_1.secure_url;
+    } catch (err) {
+      console.log("An Error Occured While Uploading");
     }
   };
 
@@ -133,17 +165,11 @@ export const LaunchEvent = ({ navigation, route }) => {
             control={control}
             errors={errors}
           />
-          {/* <LaunchEventController
-            name="Image"
-            formEntry="imageLink"
-            control={control}
-            errors={errors}
-          /> */}
           <Text style={styles.formLabel}>Image</Text>
           <Pressable onPress={pickImage} style={launchStyles.imagePicker}>
-            {image ? (
+            {imageURI ? (
               <Image
-                source={{ uri: image }}
+                source={{ uri: imageURI }}
                 style={{ width: "100%", height: "100%", opacity: 0.5 }}
               />
             ) : (

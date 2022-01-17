@@ -5,6 +5,8 @@ import { styles } from "../../SignUpForm/FormStyleSheet";
 import { launchStyles } from "./LaunchEventStyleSheet";
 
 export const LaunchEventController = ({ name, formEntry, errors, control }) => {
+  
+
   return (
     <View>
       <Text style={styles.formLabel}>{name}</Text>
