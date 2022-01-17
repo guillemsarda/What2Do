@@ -9,7 +9,7 @@ export const Home = ({ navigation, route }) => {
   const credentials = route.params;
 
   return (
-    <SafeAreaView style={[styles.screen]}>
+    <SafeAreaView style={styles.screen}>
       <Pressable
         onPress={() => {
           Alert.alert("Are you sure you want to sign out?", null, [
@@ -22,7 +22,6 @@ export const Home = ({ navigation, route }) => {
             },
             { text: "No" },
           ]);
-          //navigation.navigate("Welcome");
         }}
         style={homeStyles.logout}
       >
@@ -45,8 +44,18 @@ export const Home = ({ navigation, route }) => {
           next="MyProfile"
           navigation={navigation}
         />
-        <HomeButtons title="Find Events" color={"#FCD8DA"} />
-        <HomeButtons title="Launch An Event" color={"#FCF2D8"} />
+        <HomeButtons
+          title="Find Events"
+          color={"#FCD8DA"}
+          next="FindEvents"
+          navigation={navigation}
+        />
+        <HomeButtons
+          title="Launch An Event"
+          color={"#FCF2D8"}
+          next="LaunchEvent"
+          navigation={navigation}
+        />
       </View>
     </SafeAreaView>
   );

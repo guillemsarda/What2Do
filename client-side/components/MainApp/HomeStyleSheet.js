@@ -18,7 +18,11 @@ export const homeStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  buttonText: { fontFamily: "Inter-SemiBold", fontSize: 20 },
+  buttonText: {
+    fontFamily: "Inter-SemiBold",
+    fontSize: 20,
+    textAlign: "center",
+  },
   logout: {
     alignItems: "flex-end",
     marginRight: "5%",
