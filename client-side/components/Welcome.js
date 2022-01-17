@@ -9,7 +9,7 @@ export const Welcome = ({ navigation }) => {
         <Pressable
           title="Yes. Sign Me In"
           onPress={() => {
-            navigation.navigate("SignIn", { example: "YESSS" });
+            navigation.navigate("SignIn");
           }}
           style={[styles.button, styles.signin]}
         >
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     marginBottom: "5%",
   },
   textButton: {
-    fontFamily: "Inter-SemiBold",
+    fontFamily: "Inter-Medium",
     fontSize: 20,
   },
   signin: {
