@@ -6,6 +6,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { styles } from "./SignUpForm/FormStyleSheet";
 import { FormController } from "./SignUpForm/FormController";
 import { apiService } from "../apiService";
+import { CommonActions } from "@react-navigation/native";
 
 export const SignIn = ({ navigation }) => {
   const {
@@ -24,7 +25,12 @@ export const SignIn = ({ navigation }) => {
     const found = await apiService.signIn(userInfo);
     if (found) {
       reset();
-      navigation.navigate("MainApp", { credentials: found });
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 1,
+          routes: [{ name: "MainApp", params: { credentials: found } }],
+        })
+      );
     } else {
       reset({ email: userInfo.email, password: "" });
       Alert.alert("Wrong email/password", "Please, try again", [

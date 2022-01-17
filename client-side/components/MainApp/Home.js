@@ -1,5 +1,6 @@
 import { SafeAreaView, Text, View, Pressable, Alert } from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
+import { CommonActions } from "@react-navigation/native";
 
 import { HomeButtons } from "./HomeButtons";
 import { homeStyles } from "./HomeStyleSheet";
@@ -16,7 +17,12 @@ export const Home = ({ navigation, route }) => {
             {
               text: "Yes",
               onPress: () => {
-                navigation.navigate("Welcome");
+                navigation.dispatch(
+                  CommonActions.reset({
+                    index: 1,
+                    routes: [{ name: "Welcome" }],
+                  })
+                );
               },
               style: "cancel",
             },

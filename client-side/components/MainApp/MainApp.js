@@ -1,10 +1,11 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import { useState } from "react";
-import { FindEvents } from "./FindEvents";
+import { CommonActions } from "@react-navigation/native";
 
 import { Home } from "./Home";
-import { LaunchEvent } from "./LaunchEvent/LaunchEvent";
 import { MyProfile } from "./MyProfile";
+import { FindEvents } from "./FindEvents";
+import { LaunchEvent } from "./LaunchEvent/LaunchEvent";
 
 const MainAppRoot = createStackNavigator();
 

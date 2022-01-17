@@ -47,7 +47,12 @@ export const SignUp = ({ navigation }) => {
       );
     } else {
       reset();
-      navigation.navigate("MainApp", { credentials: found });
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 1,
+          routes: [{ name: "MainApp", params: { credentials: found } }],
+        })
+      );
     }
   };
 
