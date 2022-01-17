@@ -18,6 +18,7 @@ userController.signUp = async (req, res) => {
       res.send(data);
     }
   } catch (error) {
+    res.status(400);
     res.send(error);
   }
 };

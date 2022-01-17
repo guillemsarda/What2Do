@@ -27,3 +27,16 @@ apiService.signIn = (userInfo) => {
     .then((res) => res.json())
     .catch((e) => console.log(`Error in signing in: \n${e}`));
 };
+
+apiService.postEvent = (ev) => {
+  return fetch(baseURL + "/events", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(ev),
+  })
+    .then((res) => (res.status < 400 ? res : Promise.reject(res)))
+    .then((res) => res.json())
+    .catch((e) => console.log(`Error in posting the event: \n${e}`));
+};

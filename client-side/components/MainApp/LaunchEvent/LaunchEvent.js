@@ -6,14 +6,17 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { useForm, Controller } from "react-hook-form";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import * as ImagePicker from "expo-image-picker";
+import AppLoading from "expo-app-loading";
 
 import { styles } from "../../SignUpForm/FormStyleSheet";
 import { LaunchEventController } from "./LaunchEventController";
 import { launchStyles } from "./LaunchEventStyleSheet";
 import { useEffect, useState } from "react";
 
+import { apiService } from "../../../apiService";
+
 export const LaunchEvent = ({ navigation, route }) => {
-  const credentials = route.params;
+  const credentials = route.params; // User information
 
   const {
     setValue,
@@ -24,6 +27,7 @@ export const LaunchEvent = ({ navigation, route }) => {
   } = useForm({
     defaultValues: {
       owner: credentials.id,
+      type: credentials.type,
       eventName: "",
       location: credentials.type === "Firm" ? credentials.address : "",
       date: "",
@@ -42,20 +46,25 @@ export const LaunchEvent = ({ navigation, route }) => {
       name: "banana.jpeg",
     };
     const imageLink = await cloudinaryUpload(source);
-    console.log({ ...data, imageLink });
+    const created = await apiService.postEvent({
+      ...data,
+      imageLink,
+    });
+
+    return created ? navigation.navigate("Home") : <AppLoading />;
   };
 
   // Datetime picker set up:
   const [date, setDate] = useState(new Date());
 
+  useEffect(() => {
+    setValue("date", date);
+  });
+
   const dateOnChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setDate(currentDate);
   };
-
-  useEffect(() => {
-    setValue("date", date);
-  });
 
   //Image Picker set up:
   const [imageURI, setImageURI] = useState("");

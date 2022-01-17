@@ -5,18 +5,24 @@ import { styles } from "../../SignUpForm/FormStyleSheet";
 import { launchStyles } from "./LaunchEventStyleSheet";
 
 export const LaunchEventController = ({ name, formEntry, errors, control }) => {
-  
+  const setRules = (formEntry) => {
+    if (formEntry === "numPeople") return { required: true, pattern: /^\d+$/ };
+    if (formEntry === "ticketLink") return { required: false };
+    return { required: true };
+  };
+
+  const setCap = (formEntry) => {
+    if (formEntry === "eventName") return "words";
+    if (formEntry === "ticketLink") return "none";
+    return null;
+  };
 
   return (
     <View>
       <Text style={styles.formLabel}>{name}</Text>
       <Controller
         control={control}
-        rules={
-          formEntry === "numPeople"
-            ? { required: true, pattern: /^\d+$/ }
-            : { required: true }
-        }
+        rules={setRules(formEntry)}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
             onBlur={onBlur}
@@ -28,7 +34,7 @@ export const LaunchEventController = ({ name, formEntry, errors, control }) => {
                 : launchStyles.formInput
             }
             clearButtonMode="while-editing"
-            autoCapitalize={formEntry === "eventName" ? "words" : null}
+            autoCapitalize={setCap(formEntry)}
             multiline={formEntry === "eventDescription" ? true : false}
           />
         )}

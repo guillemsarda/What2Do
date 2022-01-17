@@ -53,6 +53,7 @@ export const SignUp = ({ navigation }) => {
           index: 1,
           routes: [
             { name: "MainApp", params: { credentials: [found, "Created"] } },
+            // The created does not make any sense, I only put it here because I take the first value of the array on the Home Page.
           ],
         })
       );
