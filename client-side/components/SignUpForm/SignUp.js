@@ -38,8 +38,8 @@ export const SignUp = ({ navigation }) => {
 
   // On Submit function:
   const onSubmit = async (userInfo) => {
-    const notExist = await apiService.signUp(userInfo);
-    if (!notExist) {
+    const found = await apiService.signUp(userInfo);
+    if (!found) {
       reset({ ...userInfo, email: "", password: "" });
       Alert.alert(
         "Email address in use",
@@ -51,7 +51,9 @@ export const SignUp = ({ navigation }) => {
       navigation.dispatch(
         CommonActions.reset({
           index: 1,
-          routes: [{ name: "MainApp", params: { credentials: found } }],
+          routes: [
+            { name: "MainApp", params: { credentials: [found, "Created"] } },
+          ],
         })
       );
     }
