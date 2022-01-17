@@ -4,6 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import { Picker } from "@react-native-picker/picker";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Ionicons } from "@expo/vector-icons";
+import { CommonActions } from "@react-navigation/native";
 
 import { Personal } from "./UserFormFeats/SignUpPersonal";
 import { Firm } from "./UserFormFeats/SignUpFirm";
