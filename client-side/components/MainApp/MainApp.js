@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FindEvents } from "./FindEvents";
 
 import { Home } from "./Home";
-import { LaunchEvent } from "./LaunchEvent";
+import { LaunchEvent } from "./LaunchEvent/LaunchEvent";
 import { MyProfile } from "./MyProfile";
 
 const MainAppRoot = createStackNavigator();
