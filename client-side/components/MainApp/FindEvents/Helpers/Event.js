@@ -25,7 +25,7 @@ export const Event = ({ ev, navigation }) => {
       )}
       <View style={eventStyles.info}>
         <Text style={eventStyles.eventName}>{ev.eventName}</Text>
-        <Text style={eventStyles.location}>{ev.owner}</Text>
+        <Text style={eventStyles.owner}>{ev.owner}</Text>
         <Text style={eventStyles.location}>{ev.location}</Text>
         <Text style={eventStyles.date}>
           {format(new Date(ev.date), "do 'of' MMMM")}
@@ -59,18 +59,26 @@ const eventStyles = StyleSheet.create({
   peopleText: {
     fontSize: 18,
     fontFamily: "Inter-Regular",
+    textAlign: "center",
   },
   eventName: {
     fontSize: 30,
     fontFamily: "Inter-SemiBold",
-    textAlign: "center"
+    textAlign: "center",
+  },
+  owner: {
+    fontSize: 23,
+    fontFamily: "Inter-Medium",
+    textAlign: "center",
   },
   location: {
-    fontSize: 23,
+    fontSize: 20,
     fontFamily: "Inter-Light",
+    textAlign: "center",
   },
   date: {
     fontSize: 20,
     fontFamily: "Inter-Light",
+    textAlign: "center",
   },
 });
