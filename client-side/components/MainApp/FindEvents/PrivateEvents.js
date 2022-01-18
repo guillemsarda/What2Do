@@ -3,8 +3,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
 import { styles } from "../../SignUpForm/FormStyleSheet";
+import { publicStyles } from "./PublicEvents";
+import { FiEvHeader } from "./FiEvHeader";
 
-export const PrivateEvents = ({ navigation }) => {
+export const PrivateEvents = ({ navigation, route }) => {
+  const credentials = route.params;
+
   return (
     <SafeAreaView style={styles.screen}>
       <Pressable
@@ -16,7 +20,11 @@ export const PrivateEvents = ({ navigation }) => {
       >
         <Ionicons name="ios-return-up-back" size={40} color="#FF525B" />
       </Pressable>
-      <Text>Private</Text>
+      <View style={publicStyles.headerView}>
+        <FiEvHeader section="Public" color="#FCD8DA" navigation={navigation} />
+        <FiEvHeader section="Private" color="#FF525B" navigation={navigation} />
+      </View>
+
     </SafeAreaView>
   );
 };
