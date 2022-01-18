@@ -1,8 +1,7 @@
 import { Text, Pressable, StyleSheet, View, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
+import { formatDistance } from "date-fns";
 
 import { styles } from "../SignUpForm/FormStyleSheet";
 
@@ -39,7 +38,6 @@ export const MyProfile = ({ navigation, route }) => {
       <View style={profStyles.piView}>
         <View style={profStyles.formHeader}>
           <Text style={profStyles.formTitle}>Personal Information</Text>
-          <MaterialIcons name="edit" size={24} color="#AEDFAD" />
         </View>
 
         <View>
@@ -66,24 +64,28 @@ export const MyProfile = ({ navigation, route }) => {
           </View>
 
           <View style={profStyles.each}>
-            <Text style={[profStyles.eventsTrack, profStyles.eachText]}>
-              Events Launched: 0 {"\n"}Events Assisted: 0
-            </Text>
+            <Text style={profStyles.eachText}>{credentials.email}</Text>
           </View>
-        {/* POSSIBLE TO REMOVE */}
+
           <View style={profStyles.each}>
-            <Text>
-              <AntDesign name="twitter" size={24} color="#6EE16B" />
-              {"\n"}
-              <AntDesign name="instagram" size={24} color="#6EE16B" />
+            <Text style={[profStyles.eventsTrack, profStyles.eachText]}>
+              Events Launched: {Math.floor(Math.random() * 15)}
             </Text>
           </View>
 
-          <View style={[profStyles.each]}>
-            <Text style={profStyles.eachText}>
-              {credentials.type === "Firm" ? "Firm" : "Personal"} Presentation:
+          <View style={[profStyles.each, { alignItems: "flex-start" }]}>
+            <Text
+              style={[
+                profStyles.eventsTrack,
+                profStyles.eachText,
+                { fontSize: 8, color: "grey" },
+              ]}
+            >
+              {" "}
+              {"\n"}
+              Account created{" "}
+              {formatDistance(new Date(credentials.createdAt), new Date())} ago
             </Text>
-            <TextInput />
           </View>
         </View>
       </View>
