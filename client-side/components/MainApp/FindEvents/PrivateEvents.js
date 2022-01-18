@@ -1,10 +1,10 @@
-import { Text, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
-import { styles } from "../SignUpForm/FormStyleSheet";
+import { styles } from "../../SignUpForm/FormStyleSheet";
 
-export const FindEvents = ({ navigation }) => {
+export const PrivateEvents = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.screen}>
       <Pressable
@@ -16,7 +16,7 @@ export const FindEvents = ({ navigation }) => {
       >
         <Ionicons name="ios-return-up-back" size={40} color="#FF525B" />
       </Pressable>
-      <Text>Here you'll find the events</Text>
+      <Text>Private</Text>
     </SafeAreaView>
   );
 };
