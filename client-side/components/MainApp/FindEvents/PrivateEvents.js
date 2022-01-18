@@ -7,7 +7,14 @@ import { publicStyles } from "./PublicEvents";
 import { FiEvHeader } from "./FiEvHeader";
 
 export const PrivateEvents = ({ navigation, route }) => {
-  const credentials = route.params;
+  const credentials = route.params.credentials;
+  const privEvs = route.params.privEvs;
+
+  const sortedList = privEvs
+    .filter((ev) => Date.now() < new Date(ev.date))
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  const evList = sortedList.map((ev, i) => {})
 
   return (
     <SafeAreaView style={styles.screen}>

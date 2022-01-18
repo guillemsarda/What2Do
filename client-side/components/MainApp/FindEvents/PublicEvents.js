@@ -4,17 +4,10 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { styles } from "../../SignUpForm/FormStyleSheet";
 import { FiEvHeader } from "./FiEvHeader";
-import { apiService } from "../../../apiService";
 
 export const PublicEvents = ({ navigation, route }) => {
-  const credentials = route.params;
-  // const publicEvents = await apiService.getEvents("Firm");
-  let evs;
-  const getEvs = async (type) => {
-    evs = await apiService.getEvents(type);
-    console.log(evs);
-  };
-  getEvs("Firm");
+  const credentials = route.params.credentials;
+  const pubEvs = route.params.pubEvs;
 
   return (
     <SafeAreaView style={styles.screen}>
