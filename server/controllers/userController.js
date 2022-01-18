@@ -19,7 +19,7 @@ userController.signUp = async (req, res) => {
     }
   } catch (error) {
     res.status(400);
-    res.send(error);
+    res.send(error.message);
   }
 };
 
@@ -40,7 +40,7 @@ userController.signIn = async (req, res) => {
     }
   } catch (error) {
     res.status(400);
-    res.send(error);
+    res.send(error.message);
   }
 };
 

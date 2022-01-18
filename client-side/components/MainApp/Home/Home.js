@@ -1,4 +1,11 @@
-import { SafeAreaView, Text, View, Pressable, Alert } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  View,
+  Pressable,
+  Alert,
+  ScrollView,
+} from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { CommonActions } from "@react-navigation/native";
 
@@ -8,7 +15,6 @@ import { styles } from "../../SignUpForm/FormStyleSheet";
 
 export const Home = ({ navigation, route }) => {
   const credentials = route.params;
-
   return (
     <SafeAreaView style={styles.screen}>
       <Pressable

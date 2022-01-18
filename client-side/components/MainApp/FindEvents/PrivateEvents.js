@@ -24,7 +24,6 @@ export const PrivateEvents = ({ navigation, route }) => {
         <FiEvHeader section="Public" color="#FCD8DA" navigation={navigation} />
         <FiEvHeader section="Private" color="#FF525B" navigation={navigation} />
       </View>
-
     </SafeAreaView>
   );
 };

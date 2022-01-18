@@ -40,3 +40,10 @@ apiService.postEvent = (ev) => {
     .then((res) => res.json())
     .catch((e) => console.log(`Error in posting the event: \n${e}`));
 };
+
+apiService.getEvents = (type) => {
+  return fetch(baseURL + "/events/" + type)
+    .then((res) => (res.status < 400 ? res : Promise.reject(res)))
+    .then((res) => res.json())
+    .catch((e) => console.log(`Error in getting the events: \n${e}`));
+};
