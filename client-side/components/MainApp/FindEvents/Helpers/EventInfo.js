@@ -43,11 +43,11 @@ export const EventInfo = ({ route, navigation }) => {
         </View>
         <View>
           <Text style={[eventInfoStyles.mainText]}>
-            <Text style={eventInfoStyles.entry}>Owner:</Text> {evInfo.owner}
+            <Text style={eventInfoStyles.entry}>Host:</Text> {evInfo.owner}
           </Text>
           {evInfo.numPeople !== "" && (
             <Text style={[eventInfoStyles.mainText]}>
-              <Text style={eventInfoStyles.entry}>People:</Text>{" "}
+              <Text style={eventInfoStyles.entry}>Capacity:</Text>{" "}
               {evInfo.numPeople}
             </Text>
           )}
