@@ -9,6 +9,17 @@ import { styles } from "../SignUpForm/FormStyleSheet";
 export const MyProfile = ({ navigation, route }) => {
   const credentials = route.params;
 
+  // We rearrange the phone number:
+  function formatNumber(number) {
+    let newNumber = number.split("");
+    let def;
+    def = `${newNumber.slice(0, 3).join("")} ${newNumber
+      .slice(3, 6)
+      .join("")} ${newNumber.slice(6).join("")}`;
+
+    return def;
+  }
+
   return (
     <SafeAreaView style={styles.screen}>
       <Pressable
@@ -20,46 +31,57 @@ export const MyProfile = ({ navigation, route }) => {
       >
         <Ionicons name="ios-return-up-back" size={40} color="#6EE16B" />
       </Pressable>
+
       <View style={profStyles.titleView}>
         <Text style={profStyles.title}>My Profile</Text>
       </View>
+
       <View style={profStyles.piView}>
         <View style={profStyles.formHeader}>
           <Text style={profStyles.formTitle}>Personal Information</Text>
           <MaterialIcons name="edit" size={24} color="#AEDFAD" />
         </View>
+
         <View>
-          <Text style={profStyles.formView}>
+          <View style={profStyles.each}>
             <Text style={profStyles.name}>
               {credentials.name} {credentials.surname}
-              {"\n"}
             </Text>
-            <Text>
-              {credentials.type}
-              {"\n"}
-            </Text>
-            {credentials.address ? (
-              <Text>
-                {credentials.address}
-                {"\n"}
-              </Text>
-            ) : null}
-            <Text>
-              {credentials.phoneNumber}
-              {"\n"}
-            </Text>
+          </View>
 
-            <Text style={profStyles.eventsTrack}>
-              Events Launched: 0 {"\n"}Events Assisted: 0{"\n"}
+          <View style={profStyles.each}>
+            <Text style={profStyles.eachText}>{credentials.type}</Text>
+          </View>
+
+          {credentials.address ? (
+            <View style={profStyles.each}>
+              <Text style={profStyles.eachText}>{credentials.address}</Text>
+            </View>
+          ) : null}
+
+          <View style={profStyles.each}>
+            <Text style={profStyles.eachText}>
+              {formatNumber(`${credentials.phoneNumber}`)}
             </Text>
+          </View>
+
+          <View style={profStyles.each}>
+            <Text style={[profStyles.eventsTrack, profStyles.eachText]}>
+              Events Launched: 0 {"\n"}Events Assisted: 0
+            </Text>
+          </View>
+
+          <View style={profStyles.each}>
             <Text>
-              <AntDesign name="twitter" size={24} color="black" />
+              <AntDesign name="twitter" size={24} color="#6EE16B" />
               {"\n"}
-              <AntDesign name="instagram" size={24} color="black" />
-              {"\n"}
+              <AntDesign name="instagram" size={24} color="#6EE16B" />
             </Text>
-            <Text>Personal Description:</Text>
-          </Text>
+          </View>
+
+          <View style={profStyles.each}>
+            <Text style={profStyles.eachText}>Personal Description:</Text>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -89,20 +111,23 @@ const profStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  formView: {
-    fontFamily: "Inter-Light",
-    marginTop: "5%",
-  },
   formTitle: {
     color: "#AEDFAD",
     fontFamily: "Inter-Regular",
-    fontSize: 20,
+    fontSize: 22,
   },
   name: {
     fontFamily: "Inter-SemiBold",
-    fontSize: 15,
+    fontSize: 20,
   },
   eventsTrack: {
     fontStyle: "italic",
+  },
+  each: {
+    marginTop: "2%",
+  },
+  eachText: {
+    fontSize: 20,
+    fontFamily: "Inter-Light",
   },
 });

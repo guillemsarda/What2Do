@@ -49,16 +49,3 @@ export const FormController = ({ formEntry, errors, control }) => {
   );
 };
 
-// IT MAY BE USEFUL LATER
-// function formatNumber(number) {
-//   let newNumber = number.split("");
-//   let def;
-//   if (number.length >= 4 && number.length < 7) {
-//     def = `${newNumber.slice(0, 3).join("")} ${newNumber.slice(3).join("")}`;
-//   } else if (number.length >= 7) {
-//     def = `${newNumber.slice(0, 3).join("")} ${newNumber
-//       .slice(3, 6)
-//       .join("")} ${newNumber.slice(7).join("")}`;
-//   }
-//   return def;
-// }
