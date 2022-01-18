@@ -1,4 +1,4 @@
-import { Text, Pressable, StyleSheet, View, Button, Image } from "react-native";
+import { Text, Pressable, View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";

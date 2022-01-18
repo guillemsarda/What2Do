@@ -4,10 +4,19 @@ import { Ionicons } from "@expo/vector-icons";
 
 import { styles } from "../../SignUpForm/FormStyleSheet";
 import { FiEvHeader } from "./FiEvHeader";
+import { Event } from "./Event";
 
 export const PublicEvents = ({ navigation, route }) => {
   const credentials = route.params.credentials;
   const pubEvs = route.params.pubEvs;
+
+  const sortedList = pubEvs
+    .filter((ev) => Date.now() < new Date(ev.date))
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  const evList = sortedList.map((ev, i) => {
+    return <Event ev={ev} key={i} />;
+  });
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -30,6 +39,7 @@ export const PublicEvents = ({ navigation, route }) => {
           />
         )}
       </View>
+      <View>{evList}</View>
     </SafeAreaView>
   );
 };
