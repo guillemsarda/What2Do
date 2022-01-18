@@ -1,9 +1,9 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
 import { styles } from "../../SignUpForm/FormStyleSheet";
-import { publicStyles } from "./PublicEvents";
+import { fiEvStyles } from "./FindEventsStyleSheet";
 import { FiEvHeader } from "./FiEvHeader";
 import { Event } from "./Event";
 
@@ -21,20 +21,30 @@ export const PrivateEvents = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <Pressable
-        title="Back"
-        onPress={() => {
-          navigation.navigate("Home");
-        }}
-        style={styles.backButton}
-      >
-        <Ionicons name="ios-return-up-back" size={40} color="#FF525B" />
-      </Pressable>
-      <View style={publicStyles.headerView}>
-        <FiEvHeader section="Public" color="#FCD8DA" navigation={navigation} />
-        <FiEvHeader section="Private" color="#FF525B" navigation={navigation} />
-      </View>
-      <View>{evList}</View>
+      <ScrollView style={fiEvStyles.scrollView}>
+        <Pressable
+          title="Back"
+          onPress={() => {
+            navigation.navigate("Home");
+          }}
+          style={styles.backButton}
+        >
+          <Ionicons name="ios-return-up-back" size={40} color="#FF525B" />
+        </Pressable>
+        <View style={fiEvStyles.headerView}>
+          <FiEvHeader
+            section="Public"
+            color="#FCD8DA"
+            navigation={navigation}
+          />
+          <FiEvHeader
+            section="Private"
+            color="#FF525B"
+            navigation={navigation}
+          />
+        </View>
+        <View style={fiEvStyles.eventView}>{evList}</View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

@@ -1,8 +1,9 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
 import { styles } from "../../SignUpForm/FormStyleSheet";
+import { fiEvStyles } from "./FindEventsStyleSheet";
 import { FiEvHeader } from "./FiEvHeader";
 import { Event } from "./Event";
 
@@ -17,36 +18,34 @@ export const PublicEvents = ({ navigation, route }) => {
   const evList = sortedList.map((ev, i) => {
     return <Event ev={ev} key={i} navigation={navigation} />;
   });
-
   return (
     <SafeAreaView style={styles.screen}>
-      <Pressable
-        title="Back"
-        onPress={() => {
-          navigation.navigate("Home");
-        }}
-        style={styles.backButton}
-      >
-        <Ionicons name="ios-return-up-back" size={40} color="#FF525B" />
-      </Pressable>
-      <View style={publicStyles.headerView}>
-        <FiEvHeader section="Public" color="#FF525B" navigation={navigation} />
-        {credentials.type === "Firm" ? null : (
+      <ScrollView style={fiEvStyles.scrollView}>
+        <Pressable
+          title="Back"
+          onPress={() => {
+            navigation.navigate("Home");
+          }}
+          style={styles.backButton}
+        >
+          <Ionicons name="ios-return-up-back" size={40} color="#FF525B" />
+        </Pressable>
+        <View style={fiEvStyles.headerView}>
           <FiEvHeader
-            section="Private"
-            color="#FCD8DA"
+            section="Public"
+            color="#FF525B"
             navigation={navigation}
           />
-        )}
-      </View>
-      <View>{evList}</View>
+          {credentials.type === "Firm" ? null : (
+            <FiEvHeader
+              section="Private"
+              color="#FCD8DA"
+              navigation={navigation}
+            />
+          )}
+        </View>
+        <View style={fiEvStyles.eventView}>{evList}</View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
-
-export const publicStyles = StyleSheet.create({
-  headerView: {
-    flexDirection: "row",
-    justifyContent: "center",
-  },
-});
