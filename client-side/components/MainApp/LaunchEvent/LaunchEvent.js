@@ -26,7 +26,7 @@ export const LaunchEvent = ({ navigation, route }) => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      owner: credentials.id,
+      owner: credentials.name,
       type: credentials.type,
       eventName: "",
       location: credentials.type === "Firm" ? credentials.address : "",

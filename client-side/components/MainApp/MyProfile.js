@@ -1,4 +1,4 @@
-import { Text, Pressable, StyleSheet, View } from "react-native";
+import { Text, Pressable, StyleSheet, View, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -70,7 +70,7 @@ export const MyProfile = ({ navigation, route }) => {
               Events Launched: 0 {"\n"}Events Assisted: 0
             </Text>
           </View>
-
+        {/* POSSIBLE TO REMOVE */}
           <View style={profStyles.each}>
             <Text>
               <AntDesign name="twitter" size={24} color="#6EE16B" />
@@ -79,8 +79,11 @@ export const MyProfile = ({ navigation, route }) => {
             </Text>
           </View>
 
-          <View style={profStyles.each}>
-            <Text style={profStyles.eachText}>Personal Description:</Text>
+          <View style={[profStyles.each]}>
+            <Text style={profStyles.eachText}>
+              {credentials.type === "Firm" ? "Firm" : "Personal"} Presentation:
+            </Text>
+            <TextInput />
           </View>
         </View>
       </View>
@@ -129,5 +132,8 @@ const profStyles = StyleSheet.create({
   eachText: {
     fontSize: 20,
     fontFamily: "Inter-Light",
+  },
+  newInputs: {
+    flexDirection: "row",
   },
 });

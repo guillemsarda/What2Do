@@ -5,7 +5,7 @@ class EventsData extends Model {}
 
 EventsData.init(
   {
-    owner: DataTypes.INTEGER,
+    owner: DataTypes.STRING,
     type: DataTypes.STRING,
     eventName: DataTypes.STRING,
     location: DataTypes.STRING,

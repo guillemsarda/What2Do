@@ -25,6 +25,7 @@ export const Event = ({ ev, navigation }) => {
       )}
       <View style={eventStyles.info}>
         <Text style={eventStyles.eventName}>{ev.eventName}</Text>
+        <Text style={eventStyles.location}>{ev.owner}</Text>
         <Text style={eventStyles.location}>{ev.location}</Text>
         <Text style={eventStyles.date}>
           {format(new Date(ev.date), "do 'of' MMMM")}
@@ -33,7 +34,7 @@ export const Event = ({ ev, navigation }) => {
     </Pressable>
   );
 };
-// "do 'of' MMMM"
+
 const eventStyles = StyleSheet.create({
   button: {
     width: 320,
@@ -62,6 +63,7 @@ const eventStyles = StyleSheet.create({
   eventName: {
     fontSize: 30,
     fontFamily: "Inter-SemiBold",
+    textAlign: "center"
   },
   location: {
     fontSize: 23,
