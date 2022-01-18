@@ -5,6 +5,7 @@ import { PublicEvents } from "./PublicEvents";
 import { PrivateEvents } from "./PrivateEvents";
 import { apiService } from "../../../apiService";
 import { Appload } from "./Appload";
+import { EventInfo } from "./EventInfo";
 
 const FindEventsRoot = createStackNavigator();
 
@@ -45,6 +46,7 @@ export const FindEvents = ({ navigation, route }) => {
         />
       )}
       <FindEventsRoot.Screen name="Loading" component={Appload} />
+      <FindEventsRoot.Screen name="EventInfo" component={EventInfo} />
     </FindEventsRoot.Navigator>
   );
 };

@@ -1,8 +1,13 @@
 import { Pressable, View, Image, Text, StyleSheet } from "react-native";
 
-export const Event = ({ ev }) => {
+export const Event = ({ ev, navigation }) => {
   return (
-    <Pressable style={eventStyles.button}>
+    <Pressable
+      style={eventStyles.button}
+      onPress={() => {
+        navigation.navigate("EventInfo", { evInfo: ev });
+      }}
+    >
       <Image
         source={{ uri: ev.imageLink }}
         style={{ width: "100%", height: "100%", opacity: 0.5 }}

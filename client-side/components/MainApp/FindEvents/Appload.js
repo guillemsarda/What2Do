@@ -1,10 +1,18 @@
+import { CommonActions } from "@react-navigation/native";
 import { ActivityIndicator, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "../../SignUpForm/FormStyleSheet";
 
+
 export const Appload = ({ navigation }) => {
   setTimeout(() => {
-    navigation.navigate("Public");
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [{ name: "Public" }],
+      })
+    );
+    // navigation.navigate("Public");
   }, 3000);
   return (
     <SafeAreaView

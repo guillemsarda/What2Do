@@ -15,7 +15,7 @@ export const PublicEvents = ({ navigation, route }) => {
     .sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const evList = sortedList.map((ev, i) => {
-    return <Event ev={ev} key={i} />;
+    return <Event ev={ev} key={i} navigation={navigation} />;
   });
 
   return (
