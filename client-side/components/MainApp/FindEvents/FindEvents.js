@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { PublicEvents } from "./PublicEvents";
 import { PrivateEvents } from "./PrivateEvents";
 import { apiService } from "../../../apiService";
-import { Appload } from "./Appload";
-import { EventInfo } from "./EventInfo";
+import { Appload } from "./Helpers/Appload";
+import { EventInfo } from "./Helpers/EventInfo";
 
 const FindEventsRoot = createStackNavigator();
 

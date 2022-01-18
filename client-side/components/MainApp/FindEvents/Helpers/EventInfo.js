@@ -10,7 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { format } from "date-fns";
 
-import { styles } from "../../SignUpForm/FormStyleSheet";
+import { styles } from "../../../SignUpForm/FormStyleSheet";
 
 export const EventInfo = ({ route, navigation }) => {
   const evInfo = route.params.evInfo;

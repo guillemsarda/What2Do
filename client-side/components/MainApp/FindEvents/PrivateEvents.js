@@ -3,9 +3,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 
 import { styles } from "../../SignUpForm/FormStyleSheet";
-import { fiEvStyles } from "./FindEventsStyleSheet";
-import { FiEvHeader } from "./FiEvHeader";
-import { Event } from "./Event";
+import { fiEvStyles } from "./Helpers/FindEventsStyleSheet";
+import { FiEvHeader } from "./Helpers/FiEvHeader";
+import { Event } from "./Helpers/Event";
 
 export const PrivateEvents = ({ navigation, route }) => {
   const credentials = route.params.credentials;

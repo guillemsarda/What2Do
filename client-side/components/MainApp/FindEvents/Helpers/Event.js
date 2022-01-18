@@ -14,7 +14,7 @@ export const Event = ({ ev, navigation }) => {
         style={{
           width: "100%",
           height: "100%",
-          opacity: 0.2,
+          opacity: 0.15,
           borderRadius: 15,
         }}
       />
