@@ -1,11 +1,35 @@
-# Solo-Project-CW
+# What2Do
 
-Steps to access the App:
+What2Do is an iOSs app to find and post events in Barcelona. This project was developed as part of the Codeworks 12-week course.
 
-- Download Expo Go in your mobile phone.
-- On the project folder run `npm i` in the terminal.
-- In the terminal, go to the `client-side` folder, install the dependencies and run `expo start` and open the link that they provide to you.
-- Scan the code.
-- In the terminal, go to the `server` folder, install the dependencies and if you have nodemon globally installed, run `nodemon index.js`
+## Screenshots
 
-Now, you will have access to the Front-End, however maybe you would not be able to access to the Main App since
+<img src="./README-media/welcome.jpeg" width="200"/>
+<img src="./README-media/initial-screen.jpg" width="200"/>
+<img src="./README-media/launch-event.jpg" width="200"/>
+<img src="./README-media/events.jpeg" width="200"/>
+
+## Getting started
+
+Requirements:
+
+- Expo Go on your mobile phone.
+- Docker installed and opened on your computer.
+
+Open the terminal and in the root folder run the following commands:
+
+- `npm run set-up`, to install the dependencies.
+- `npm run infra:up` to set up the database.
+- In one tab, `npm run start-server` to be able to use the back-end.
+- In another tab, `npm run start-app` to be able to use the front-end.
+  - Scan the QR code.
+
+You should be able to use What2Do!
+
+\* To stop the docker container run `npm run infra:down`.
+
+## Tech Stack
+
+- React Native (ejected from Expo).
+- Express JS.
+- PostgresSQL.

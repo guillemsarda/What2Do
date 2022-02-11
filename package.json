@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "set-up": "npm i && cd client-side && npm i cd ../server && npm i",
+    "start-app": "cd client-side && expo start",
+    "start-server": "cd server && nodemon index.js",
+    "infra:up": "docker-compose up -d",
+    "infra:down": "docker-compose down"
   },
   "repository": {
     "type": "git",
