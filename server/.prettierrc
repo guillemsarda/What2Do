@@ -1,0 +1,7 @@
+{
+  "extends": ["plugin:prettier/recommended"],
+  "bracketSpacing": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": false
+}
