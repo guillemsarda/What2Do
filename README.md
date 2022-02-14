@@ -1,6 +1,6 @@
 # What2Do
 
-What2Do is an iOSs app to find and post events in Barcelona. This project was developed as part of the Codeworks 12-week course.
+What2Do is an iOSs app to find and post events in Barcelona.
 
 ## Screenshots
 
