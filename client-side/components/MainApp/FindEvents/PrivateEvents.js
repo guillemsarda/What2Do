@@ -1,14 +1,13 @@
-import { View, Text, Pressable, ScrollView } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
+import {View, Pressable, ScrollView} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {Ionicons} from '@expo/vector-icons';
 
-import { styles } from "../../SignUpForm/FormStyleSheet";
-import { fiEvStyles } from "./Helpers/FindEventsStyleSheet";
-import { FiEvHeader } from "./Helpers/FiEvHeader";
-import { Event } from "./Helpers/Event";
+import {styles} from '../../SignUpForm/FormStyleSheet';
+import {fiEvStyles} from './Helpers/FindEventsStyleSheet';
+import {FiEvHeader} from './Helpers/FiEvHeader';
+import {Event} from './Helpers/Event';
 
-export const PrivateEvents = ({ navigation, route }) => {
-  const credentials = route.params.credentials;
+export const PrivateEvents = ({navigation, route}) => {
   const privEvs = route.params.privEvs;
 
   const sortedList = privEvs
@@ -25,7 +24,7 @@ export const PrivateEvents = ({ navigation, route }) => {
         <Pressable
           title="Back"
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate('Home');
           }}
           style={styles.backButton}
         >

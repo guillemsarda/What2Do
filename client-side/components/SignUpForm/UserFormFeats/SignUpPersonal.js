@@ -1,10 +1,10 @@
-import React from "react";
-import { Text, View } from "react-native";
+import React from 'react';
+import {Text, View} from 'react-native';
 
-import { styles } from "../FormStyleSheet";
-import { FormController } from "../FormController";
+import {styles} from '../FormStyleSheet';
+import {FormController} from '../FormController';
 
-export const Personal = ({ control, errors }) => {
+export const Personal = ({control, errors}) => {
   return (
     <View>
       <Text style={styles.formLabel}>Name</Text>

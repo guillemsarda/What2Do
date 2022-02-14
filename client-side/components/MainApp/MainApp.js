@@ -1,18 +1,18 @@
-import { createStackNavigator } from "@react-navigation/stack";
-import { useState } from "react";
+import {createStackNavigator} from '@react-navigation/stack';
+import {useState} from 'react';
 
-import { Home } from "./Home/Home";
-import { MyProfile } from "./MyProfile";
-import { FindEvents } from "./FindEvents/FindEvents";
-import { LaunchEvent } from "./LaunchEvent/LaunchEvent";
+import {Home} from './Home/Home';
+import {MyProfile} from './MyProfile';
+import {FindEvents} from './FindEvents/FindEvents';
+import {LaunchEvent} from './LaunchEvent/LaunchEvent';
 
 const MainAppRoot = createStackNavigator();
 
-export const MainApp = ({ navigation, route }) => {
-  const [credentials, setCredentials] = useState(route.params.credentials[0]);
+export const MainApp = ({route}) => {
+  const [credentials] = useState(route.params.credentials[0]);
 
   return (
-    <MainAppRoot.Navigator screenOptions={{ headerShown: false }}>
+    <MainAppRoot.Navigator screenOptions={{headerShown: false}}>
       <MainAppRoot.Screen
         name="Home"
         component={Home}

@@ -1,13 +1,13 @@
-import { Controller } from "react-hook-form";
-import { TextInput, Text, View } from "react-native";
+import {Controller} from 'react-hook-form';
+import {TextInput, Text, View} from 'react-native';
 
-import { styles } from "./FormStyleSheet";
+import {styles} from './FormStyleSheet';
 
-export const FormController = ({ formEntry, errors, control }) => {
+export const FormController = ({formEntry, errors, control}) => {
   // Function to determine the keyboard type
   function keyboard() {
-    if (formEntry === "phoneNumber") return "number-pad";
-    if (formEntry === "email") return "email-address";
+    if (formEntry === 'phoneNumber') return 'number-pad';
+    if (formEntry === 'email') return 'email-address';
   }
 
   const mailRegEx =
@@ -18,29 +18,29 @@ export const FormController = ({ formEntry, errors, control }) => {
       <Controller
         control={control}
         rules={
-          formEntry === "email"
-            ? { required: true, pattern: mailRegEx }
-            : { required: true }
+          formEntry === 'email'
+            ? {required: true, pattern: mailRegEx}
+            : {required: true}
         }
-        render={({ field: { onChange, onBlur, value } }) => (
+        render={({field: {onChange, onBlur, value}}) => (
           <TextInput
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
             style={styles.formInput}
-            secureTextEntry={formEntry === "password" ? true : false}
+            secureTextEntry={formEntry === 'password' ? true : false}
             keyboardType={keyboard()}
-            maxLength={formEntry === "phoneNumber" ? 9 : null}
+            maxLength={formEntry === 'phoneNumber' ? 9 : null}
             clearButtonMode="while-editing"
-            autoCapitalize={formEntry === "email" ? "none" : null}
+            autoCapitalize={formEntry === 'email' ? 'none' : null}
           />
         )}
         name={formEntry}
       />
-      {errors[formEntry] && formEntry !== "email" && (
+      {errors[formEntry] && formEntry !== 'email' && (
         <Text style={styles.required}>This field is required.</Text>
       )}
-      {errors[formEntry] && formEntry === "email" && (
+      {errors[formEntry] && formEntry === 'email' && (
         <Text style={styles.required}>
           Please, write a valid email address.
         </Text>
@@ -48,4 +48,3 @@ export const FormController = ({ formEntry, errors, control }) => {
     </View>
   );
 };
-

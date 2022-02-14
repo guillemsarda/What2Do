@@ -1,31 +1,31 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 export const homeStyles = StyleSheet.create({
-  titleView: { alignItems: "center" },
+  titleView: {alignItems: 'center'},
   buttonsView: {
-    height: "100%",
-    width: "100%",
-    alignItems: "center",
-    marginTop: "8%",
+    height: '100%',
+    width: '100%',
+    alignItems: 'center',
+    marginTop: '8%',
   },
   button: {
-    padding: "5%",
-    marginBottom: "5%",
-    marginHorizontal: "15%",
+    padding: '5%',
+    marginBottom: '5%',
+    marginHorizontal: '15%',
     borderRadius: 15,
-    width: "60%",
-    height: "17%",
-    alignItems: "center",
-    justifyContent: "center",
+    width: '60%',
+    height: '17%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
-    fontFamily: "Inter-SemiBold",
+    fontFamily: 'Inter-SemiBold',
     fontSize: 20,
-    textAlign: "center",
+    textAlign: 'center',
   },
   logout: {
-    alignItems: "flex-end",
-    marginRight: "5%",
-    paddingVertical: "2%",
+    alignItems: 'flex-end',
+    marginRight: '5%',
+    paddingVertical: '2%',
   },
 });

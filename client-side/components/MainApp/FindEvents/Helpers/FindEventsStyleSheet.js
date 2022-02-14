@@ -1,15 +1,13 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
 export const fiEvStyles = StyleSheet.create({
   headerView: {
-    flexDirection: "row",
-    justifyContent: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   eventView: {
-    alignItems: "center",
-    marginTop: "5%",
+    alignItems: 'center',
+    marginTop: '5%',
   },
-  scrollView: {
-
-  },
+  scrollView: {},
 });

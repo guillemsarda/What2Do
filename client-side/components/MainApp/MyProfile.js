@@ -1,20 +1,19 @@
-import { Text, Pressable, StyleSheet, View, TextInput } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
-import { formatDistance } from "date-fns";
+import {Ionicons} from '@expo/vector-icons';
+import {formatDistance} from 'date-fns';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {styles} from '../SignUpForm/FormStyleSheet';
 
-import { styles } from "../SignUpForm/FormStyleSheet";
-
-export const MyProfile = ({ navigation, route }) => {
+export const MyProfile = ({navigation, route}) => {
   const credentials = route.params;
 
   // We rearrange the phone number:
   function formatNumber(number) {
-    let newNumber = number.split("");
-    let def;
-    def = `${newNumber.slice(0, 3).join("")} ${newNumber
+    const newNumber = number.split('');
+
+    const def = `${newNumber.slice(0, 3).join('')} ${newNumber
       .slice(3, 6)
-      .join("")} ${newNumber.slice(6).join("")}`;
+      .join('')} ${newNumber.slice(6).join('')}`;
 
     return def;
   }
@@ -24,7 +23,7 @@ export const MyProfile = ({ navigation, route }) => {
       <Pressable
         title="Back"
         onPress={() => {
-          navigation.navigate("Home");
+          navigation.navigate('Home');
         }}
         style={[styles.backButton]}
       >
@@ -73,17 +72,17 @@ export const MyProfile = ({ navigation, route }) => {
             </Text>
           </View>
 
-          <View style={[profStyles.each, { alignItems: "flex-start" }]}>
+          <View style={[profStyles.each, {alignItems: 'flex-start'}]}>
             <Text
               style={[
                 profStyles.eventsTrack,
                 profStyles.eachText,
-                { fontSize: 8, color: "grey" },
+                {fontSize: 8, color: 'grey'},
               ]}
             >
-              {" "}
-              {"\n"}
-              Account created{" "}
+              {' '}
+              {'\n'}
+              Account created{' '}
               {formatDistance(new Date(credentials.createdAt), new Date())} ago
             </Text>
           </View>
@@ -95,47 +94,47 @@ export const MyProfile = ({ navigation, route }) => {
 
 const profStyles = StyleSheet.create({
   titleView: {
-    alignItems: "center",
-    justifyContent: "center",
-    borderBottomColor: "#6EE16B",
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomColor: '#6EE16B',
     borderBottomWidth: 3,
-    marginHorizontal: "25%",
+    marginHorizontal: '25%',
   },
   title: {
-    fontFamily: "Inter-SemiBold",
+    fontFamily: 'Inter-SemiBold',
     fontSize: 25,
-    color: "#6EE16B",
-    textAlign: "center",
-    padding: "1%",
+    color: '#6EE16B',
+    textAlign: 'center',
+    padding: '1%',
   },
   piView: {
-    marginTop: "5%",
-    marginHorizontal: "8%",
+    marginTop: '5%',
+    marginHorizontal: '8%',
   },
   formHeader: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   formTitle: {
-    color: "#AEDFAD",
-    fontFamily: "Inter-Regular",
+    color: '#AEDFAD',
+    fontFamily: 'Inter-Regular',
     fontSize: 22,
   },
   name: {
-    fontFamily: "Inter-SemiBold",
+    fontFamily: 'Inter-SemiBold',
     fontSize: 20,
   },
   eventsTrack: {
-    fontStyle: "italic",
+    fontStyle: 'italic',
   },
   each: {
-    marginTop: "2%",
+    marginTop: '2%',
   },
   eachText: {
     fontSize: 20,
-    fontFamily: "Inter-Light",
+    fontFamily: 'Inter-Light',
   },
   newInputs: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
 });

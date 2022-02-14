@@ -1,13 +1,12 @@
-import { View, Text, Pressable, StyleSheet, ScrollView } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Ionicons } from "@expo/vector-icons";
+import {Ionicons} from '@expo/vector-icons';
+import {Pressable, ScrollView, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {styles} from '../../SignUpForm/FormStyleSheet';
+import {Event} from './Helpers/Event';
+import {FiEvHeader} from './Helpers/FiEvHeader';
+import {fiEvStyles} from './Helpers/FindEventsStyleSheet';
 
-import { styles } from "../../SignUpForm/FormStyleSheet";
-import { fiEvStyles } from "./Helpers/FindEventsStyleSheet";
-import { FiEvHeader } from "./Helpers/FiEvHeader";
-import { Event } from "./Helpers/Event";
-
-export const PublicEvents = ({ navigation, route }) => {
+export const PublicEvents = ({navigation, route}) => {
   const credentials = route.params.credentials;
   const pubEvs = route.params.pubEvs;
 
@@ -24,7 +23,7 @@ export const PublicEvents = ({ navigation, route }) => {
         <Pressable
           title="Back"
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate('Home');
           }}
           style={styles.backButton}
         >
@@ -36,7 +35,7 @@ export const PublicEvents = ({ navigation, route }) => {
             color="#FF525B"
             navigation={navigation}
           />
-          {credentials.type === "Firm" ? null : (
+          {credentials.type === 'Firm' ? null : (
             <FiEvHeader
               section="Private"
               color="#FCD8DA"

@@ -1,12 +1,12 @@
-const baseURL = "http://192.168.1.232:3000"; /*"http://192.168.0.93:3000";*/ //Casa IP Address
+const baseURL = 'http://192.168.1.232:3000'; /* "http://192.168.0.93:3000";*/ // Casa IP Address
 
 export const apiService = {};
 
 apiService.signUp = (userInfo) => {
-  return fetch(baseURL + "/users", {
-    method: "POST",
+  return fetch(baseURL + '/users', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(userInfo),
   })
@@ -16,10 +16,10 @@ apiService.signUp = (userInfo) => {
 };
 
 apiService.signIn = (userInfo) => {
-  return fetch(baseURL + "/user-login", {
-    method: "POST",
+  return fetch(baseURL + '/user-login', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(userInfo),
   })
@@ -29,10 +29,10 @@ apiService.signIn = (userInfo) => {
 };
 
 apiService.postEvent = (ev) => {
-  return fetch(baseURL + "/events", {
-    method: "POST",
+  return fetch(baseURL + '/events', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(ev),
   })
@@ -42,7 +42,7 @@ apiService.postEvent = (ev) => {
 };
 
 apiService.getEvents = (type) => {
-  return fetch(baseURL + "/events/" + type)
+  return fetch(baseURL + '/events/' + type)
     .then((res) => (res.status < 400 ? res : Promise.reject(res)))
     .then((res) => res.json())
     .catch((e) => console.log(`Error in getting the events: \n${e}`));

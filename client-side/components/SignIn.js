@@ -1,23 +1,23 @@
-import { Text, View, Pressable, SafeAreaView, Alert } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { useForm } from "react-hook-form";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import {Text, View, Pressable, SafeAreaView, Alert} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
+import {useForm} from 'react-hook-form';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-import { styles } from "./SignUpForm/FormStyleSheet";
-import { FormController } from "./SignUpForm/FormController";
-import { apiService } from "../apiService";
-import { CommonActions } from "@react-navigation/native";
+import {styles} from './SignUpForm/FormStyleSheet';
+import {FormController} from './SignUpForm/FormController';
+import {apiService} from '../apiService';
+import {CommonActions} from '@react-navigation/native';
 
-export const SignIn = ({ navigation }) => {
+export const SignIn = ({navigation}) => {
   const {
     control,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: {errors},
   } = useForm({
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
   });
   // On Submit function:
@@ -28,14 +28,12 @@ export const SignIn = ({ navigation }) => {
       navigation.dispatch(
         CommonActions.reset({
           index: 1,
-          routes: [{ name: "MainApp", params: { credentials: found } }],
-        })
+          routes: [{name: 'MainApp', params: {credentials: found}}],
+        }),
       );
     } else {
-      reset({ email: userInfo.email, password: "" });
-      Alert.alert("Wrong email/password", "Please, try again", [
-        { text: "OK" },
-      ]);
+      reset({email: userInfo.email, password: ''});
+      Alert.alert('Wrong email/password', 'Please, try again', [{text: 'OK'}]);
     }
   };
 
@@ -45,14 +43,14 @@ export const SignIn = ({ navigation }) => {
         <Pressable
           title="Back"
           onPress={() => {
-            navigation.navigate("Welcome");
+            navigation.navigate('Welcome');
           }}
           style={styles.backButton}
         >
           <Ionicons name="ios-return-up-back" size={40} color="#8BC6FD" />
         </Pressable>
         <Text style={styles.title}>Sign Me In</Text>
-        <View style={[styles.form, { backgroundColor: "#D8F1FC" }]}>
+        <View style={[styles.form, {backgroundColor: '#D8F1FC'}]}>
           <Text style={styles.formLabel}>Email</Text>
           <FormController control={control} errors={errors} formEntry="email" />
           <Text style={styles.formLabel}>Password</Text>

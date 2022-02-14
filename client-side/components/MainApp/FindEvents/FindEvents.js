@@ -1,21 +1,21 @@
-import { createStackNavigator } from "@react-navigation/stack";
-import { useEffect, useState } from "react";
+import {createStackNavigator} from '@react-navigation/stack';
+import {useEffect, useState} from 'react';
 
-import { PublicEvents } from "./PublicEvents";
-import { PrivateEvents } from "./PrivateEvents";
-import { apiService } from "../../../apiService";
-import { Appload } from "./Helpers/Appload";
-import { EventInfo } from "./Helpers/EventInfo";
+import {PublicEvents} from './PublicEvents';
+import {PrivateEvents} from './PrivateEvents';
+import {apiService} from '../../../apiService';
+import {Appload} from './Helpers/Appload';
+import {EventInfo} from './Helpers/EventInfo';
 
 const FindEventsRoot = createStackNavigator();
 
-export const FindEvents = ({ navigation, route }) => {
+export const FindEvents = ({route}) => {
   const credentials = route.params;
   const [pubEvs, setPubEvs] = useState();
   const [privEvs, setPrivEvs] = useState();
 
   const getEvs = async (type) => {
-    if (type === "Firm") {
+    if (type === 'Firm') {
       data = await apiService.getEvents(type);
       return setPubEvs(data);
     } else {
@@ -25,24 +25,24 @@ export const FindEvents = ({ navigation, route }) => {
   };
 
   useEffect(() => {
-    getEvs("Firm");
-    credentials.type === "Personal" && getEvs("Personal");
+    getEvs('Firm');
+    credentials.type === 'Personal' && getEvs('Personal');
   }, []);
 
   return (
-    <FindEventsRoot.Navigator screenOptions={{ headerShown: false }}>
+    <FindEventsRoot.Navigator screenOptions={{headerShown: false}}>
       {pubEvs && (
         <FindEventsRoot.Screen
           name="Public"
           component={PublicEvents}
-          initialParams={{ credentials, pubEvs }}
+          initialParams={{credentials, pubEvs}}
         />
       )}
       {privEvs && (
         <FindEventsRoot.Screen
           name="Private"
           component={PrivateEvents}
-          initialParams={{ credentials, privEvs }}
+          initialParams={{credentials, privEvs}}
         />
       )}
       <FindEventsRoot.Screen name="Loading" component={Appload} />

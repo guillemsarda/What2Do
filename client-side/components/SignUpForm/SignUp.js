@@ -1,50 +1,50 @@
-import React, { useEffect, useState } from "react";
-import { Alert, Pressable, SafeAreaView, Text, View } from "react-native";
-import { useForm, Controller } from "react-hook-form";
-import { Picker } from "@react-native-picker/picker";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { Ionicons } from "@expo/vector-icons";
-import { CommonActions } from "@react-navigation/native";
+import React, {useEffect, useState} from 'react';
+import {Alert, Pressable, SafeAreaView, Text, View} from 'react-native';
+import {useForm, Controller} from 'react-hook-form';
+import {Picker} from '@react-native-picker/picker';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {Ionicons} from '@expo/vector-icons';
+import {CommonActions} from '@react-navigation/native';
 
-import { Personal } from "./UserFormFeats/SignUpPersonal";
-import { Firm } from "./UserFormFeats/SignUpFirm";
-import { styles } from "./FormStyleSheet";
-import { FormController } from "./FormController";
+import {Personal} from './UserFormFeats/SignUpPersonal';
+import {Firm} from './UserFormFeats/SignUpFirm';
+import {styles} from './FormStyleSheet';
+import {FormController} from './FormController';
 
-import { apiService } from "../../apiService";
+import {apiService} from '../../apiService';
 
-export const SignUp = ({ navigation }) => {
-  const [selectedType, setSelectedType] = useState("Unknown");
+export const SignUp = ({navigation}) => {
+  const [selectedType, setSelectedType] = useState('Unknown');
   const {
     setValue,
     control,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: {errors},
   } = useForm({
     defaultValues: {
       type: selectedType,
-      name: "",
-      surname: "",
-      address: "",
-      phoneNumber: "",
-      email: "",
-      password: "",
+      name: '',
+      surname: '',
+      address: '',
+      phoneNumber: '',
+      email: '',
+      password: '',
     },
   });
   useEffect(() => {
-    setValue("type", selectedType);
+    setValue('type', selectedType);
   });
 
   // On Submit function:
   const onSubmit = async (userInfo) => {
     const found = await apiService.signUp(userInfo);
     if (!found) {
-      reset({ ...userInfo, email: "", password: "" });
+      reset({...userInfo, email: '', password: ''});
       Alert.alert(
-        "Email address in use",
+        'Email address in use',
         "Please, go to the 'Sign Me In' page or choose another email address.",
-        [{ text: "OK" }]
+        [{text: 'OK'}],
       );
     } else {
       reset();
@@ -52,19 +52,19 @@ export const SignUp = ({ navigation }) => {
         CommonActions.reset({
           index: 1,
           routes: [
-            { name: "MainApp", params: { credentials: [found, "Created"] } },
+            {name: 'MainApp', params: {credentials: [found, 'Created']}},
             // The 'Created' does not make any functional sense, I only put it here because I take the first value of the array on the Home Page.
           ],
-        })
+        }),
       );
     }
   };
 
   // Function to render the corresponding users form:
   function userForm() {
-    if (selectedType === "Firm") {
+    if (selectedType === 'Firm') {
       return <Firm control={control} errors={errors} />;
-    } else if (selectedType === "Personal") {
+    } else if (selectedType === 'Personal') {
       return <Personal control={control} errors={errors} />;
     } else return null;
   }
@@ -75,7 +75,7 @@ export const SignUp = ({ navigation }) => {
         <Pressable
           title="Back"
           onPress={() => {
-            navigation.navigate("Welcome");
+            navigation.navigate('Welcome');
           }}
           style={styles.backButton}
         >
@@ -124,7 +124,7 @@ export const SignUp = ({ navigation }) => {
               title="Submit"
               onPress={handleSubmit(onSubmit)}
               style={styles.submit}
-              disabled={selectedType === "Unknown" ? true : false}
+              disabled={selectedType === 'Unknown' ? true : false}
             >
               <Text style={styles.submitText}>Sign Up</Text>
             </Pressable>
