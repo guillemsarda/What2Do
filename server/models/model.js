@@ -1,4 +1,6 @@
 const { Sequelize } = require("sequelize");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const config = {
   host: "localhost",
@@ -8,8 +10,8 @@ const config = {
 
 const sequelize = new Sequelize(
   "codeworks-db",
-  "postgres",
-  "postgress",
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   config
 );
 
