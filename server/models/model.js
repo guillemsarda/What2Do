@@ -9,7 +9,7 @@ const config = {
 };
 
 const sequelize = new Sequelize(
-  "codeworks-db",
+  process.env.DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASSWORD,
   config

@@ -3,9 +3,11 @@ services:
   postgres:
     image: postgres:14.1-alpine
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgress
-      - POSTGRES_DB=codeworks-db
+    # Create a .env file with these variables
+    # To check their values run `docker-compose config`
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
     ports:
       - 5432:5432
     volumes:
