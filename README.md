@@ -2,12 +2,17 @@
 
 What2Do is an iOSs app to find and post events in Barcelona.
 
-## Screenshots
+## User Interface
 
-<img src="./readme-media/welcome.jpeg" width="200"/>
-<img src="./readme-media/initial-screen.jpg" width="200"/>
-<img src="./readme-media/launch-event.jpg" width="200"/>
-<img src="./readme-media/events.jpeg" width="200"/>
+<p>
+  <img alt="Welcome screen" src="./readme-media/welcome.jpeg" width="200"/>
+  &nbsp;
+  <img alt="Initial screen" src="./readme-media/initial-screen.jpg" width="200"/>
+  &nbsp;
+  <img alt="Launch event screen" src="./readme-media/launch-event.jpg" width="200"/>
+  &nbsp;
+  <img alt="Events screen" src="./readme-media/events.jpeg" width="200"/>
+</p>
 
 ## Getting started
 
