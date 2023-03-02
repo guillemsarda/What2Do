@@ -5,19 +5,18 @@ class EventsData extends Model {}
 
 EventsData.init(
   {
-    owner: DataTypes.STRING,
     type: DataTypes.STRING,
-    eventName: DataTypes.STRING,
+    event_name: DataTypes.STRING,
     location: DataTypes.STRING,
     date: DataTypes.STRING,
-    ticketLink: DataTypes.STRING,
-    numPeople: DataTypes.STRING,
-    eventDescription: DataTypes.STRING,
-    imageLink: DataTypes.STRING,
+    ticket_link: DataTypes.STRING,
+    num_people: DataTypes.INTEGER,
+    event_description: DataTypes.STRING,
+    image_link: DataTypes.STRING,
   },
   {
     sequelize,
-    modelName: "eventsData",
+    modelName: "events_data",
   }
 );
 

@@ -5,7 +5,7 @@ dotenv.config();
 const config = {
   host: "localhost",
   dialect: "postgres",
-  logging: console.log,
+  logging: false,
 };
 
 const sequelize = new Sequelize(

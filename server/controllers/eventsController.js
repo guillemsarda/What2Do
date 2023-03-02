@@ -1,4 +1,4 @@
-const EventsData = require("../models/eventsData");
+const EventsData = require("../models/events-data");
 
 const eventsController = {};
 
