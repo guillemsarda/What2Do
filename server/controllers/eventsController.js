@@ -19,6 +19,7 @@ eventsController.getEvents = async (req, res) => {
       where: {
         type: req.params.type,
       },
+      include: ["owner"],
     });
     res.status(200);
     res.send(ev);
