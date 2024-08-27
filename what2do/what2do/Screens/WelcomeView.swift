@@ -12,7 +12,7 @@ struct WelcomeView: View {
         NavigationStack {
             WithHeaderView(translationKey: "welcome") {
                 VStack {
-                    Text(LocalizedStringKey("accountQuestion"))
+                    Text("accountQuestion")
                         .font(.title)
                         .fontWeight(.semibold)
                         .padding([.bottom], 30)

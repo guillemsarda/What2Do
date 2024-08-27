@@ -11,43 +11,47 @@ struct CustomButton<DestinationView: View>: View {
     var translationKey: String
     var pageToNavigate: (DestinationView)?
     var color: Color
+    var isSmall: Bool?
     @State private var triggerNavigation: Bool = false
     
-    init(translationKey: String, color: Color, destination: (DestinationView)? = nil) {
+    init(translationKey: String, color: Color, destination: (DestinationView)? = nil, isSmall: Bool? = nil) {
         self.translationKey = translationKey
         self.pageToNavigate = destination
         self.color = color
+        self.isSmall = isSmall
     }
     
     var body: some View {
-        NavigationStack {
-            Button(action: {
-                if self.pageToNavigate != nil {
-                    triggerNavigation = true
-                    return
-                }
-                print("Did not navigate")
-            })
-            {
-                Text(LocalizedStringKey(self.translationKey))
-                    .foregroundColor(.black)
-                    .padding([.bottom, .top], 30)
-                    .padding([.leading, .trailing], 50)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(self.color)
-                    )
-            }.navigationDestination(isPresented: $triggerNavigation, destination: {
-                self.pageToNavigate
-            })
-        }
+        Button(action: {
+            if self.pageToNavigate != nil {
+                triggerNavigation = true
+                return
+            }
+            print("Did not navigate")
+        })
+        {
+            Text(LocalizedStringKey(self.translationKey))
+                .foregroundColor(.black)
+                .padding([.bottom, .top], isSmall == true ? 10 : 30)
+                .padding([.leading, .trailing], isSmall == true ? 40 : 50)
+                .background(
+                    RoundedRectangle(cornerRadius: isSmall == true ? 15 : 20)
+                        .fill(self.color)
+                )
+        }.navigationDestination(isPresented: $triggerNavigation, destination: {
+            self.pageToNavigate
+        })
     }
 }
 
 #Preview {
-    CustomButton<SignInView>(translationKey: "accountAnswerPositive", color: Color("LightBlue"), destination: SignInView())
+    NavigationStack {
+        CustomButton<SignInView>(translationKey: "accountAnswerPositive", color: Color("LightBlue"), destination: SignInView())
+    }
 }
 
 #Preview {
-    CustomButton<EmptyView>(translationKey: "accountAnswerNegative", color: Color("SeaBlue"))
+    NavigationStack {
+        CustomButton<EmptyView>(translationKey: "signIn", color: Color("SeaBlue"), isSmall: true)
+    }
 }
