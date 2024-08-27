@@ -23,30 +23,12 @@ struct WelcomeView: View {
                         .fontWeight(.semibold)
                         .padding([.bottom], 30)
                         .multilineTextAlignment(.center)
-                    NavigationLink(destination: SignInView()) {
-                        Text(LocalizedStringKey("accountAnswerPositive"))
-                            .foregroundColor(.black)
-                            .padding([.bottom, .top], 30)
-                            .padding([.leading, .trailing], 50)
-                            .background(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(Color("LightBlue"))
-                            )
-                            .padding([.bottom], 15)
-                    }
-                    NavigationLink(destination: SignInView()) {
-                        Text(LocalizedStringKey("accountAnswerNegative"))
-                            .foregroundColor(.black)
-                            .padding([.bottom, .top], 30)
-                            .padding([.leading, .trailing], 50)
-                            .background(
-                                RoundedRectangle(cornerRadius: 20)
-                                    .fill(Color("SeaBlue"))
-                            )
-                    }
+                    CustomButton(translationKey: "accountAnswerPositive", color: Color("LightBlue"), destination: SignInView())
+                    .padding([.bottom], 15)
+                    CustomButton(translationKey: "accountAnswerNegative", color: Color("SeaBlue"), destination: SignUpView())
                 }
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: .infinity, minHeight: 0, maxHeight:.infinity)
-            }.zIndex(5)
+            }
         }
     }
 }
