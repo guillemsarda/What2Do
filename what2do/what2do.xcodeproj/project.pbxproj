@@ -16,6 +16,7 @@
 		9E6C10AA2C7CCE3A001FB4C0 /* what2doUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C10A92C7CCE3A001FB4C0 /* what2doUITestsLaunchTests.swift */; };
 		9E6C10B82C7CD304001FB4C0 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 9E6C10B72C7CD304001FB4C0 /* Localizable.xcstrings */; };
 		9EC4D74D2C7DD77600973375 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4D74C2C7DD77600973375 /* SignInView.swift */; };
+		9EC4D7512C7DDDBF00973375 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4D7502C7DDDBF00973375 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		9E6C10A92C7CCE3A001FB4C0 /* what2doUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = what2doUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9E6C10B72C7CD304001FB4C0 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		9EC4D74C2C7DD77600973375 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		9EC4D7502C7DDDBF00973375 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			children = (
 				9E6C108E2C7CCE39001FB4C0 /* WelcomeView.swift */,
 				9EC4D74C2C7DD77600973375 /* SignInView.swift */,
+				9EC4D7502C7DDDBF00973375 /* SignUpView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EC4D7512C7DDDBF00973375 /* SignUpView.swift in Sources */,
 				9EC4D74D2C7DD77600973375 /* SignInView.swift in Sources */,
 				9E6C108F2C7CCE39001FB4C0 /* WelcomeView.swift in Sources */,
 				9E6C108D2C7CCE39001FB4C0 /* what2doApp.swift in Sources */,
