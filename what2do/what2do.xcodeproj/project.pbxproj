@@ -18,6 +18,7 @@
 		9EC4D74D2C7DD77600973375 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4D74C2C7DD77600973375 /* SignInView.swift */; };
 		9EC4D7512C7DDDBF00973375 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4D7502C7DDDBF00973375 /* SignUpView.swift */; };
 		9EC4D7542C7DDE8D00973375 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4D7532C7DDE8D00973375 /* CustomButton.swift */; };
+		9EC4D7562C7E113200973375 /* WithHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC4D7552C7E113200973375 /* WithHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		9EC4D74C2C7DD77600973375 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		9EC4D7502C7DDDBF00973375 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		9EC4D7532C7DDE8D00973375 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		9EC4D7552C7E113200973375 /* WithHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WithHeaderView.swift; path = Components/WithHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				9E6C10902C7CCE3A001FB4C0 /* Assets.xcassets */,
 				9E6C10922C7CCE3A001FB4C0 /* Preview Content */,
 				9E6C10B72C7CD304001FB4C0 /* Localizable.xcstrings */,
+				9EC4D7552C7E113200973375 /* WithHeaderView.swift */,
 			);
 			path = what2do;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				9EC4D7512C7DDDBF00973375 /* SignUpView.swift in Sources */,
 				9EC4D74D2C7DD77600973375 /* SignInView.swift in Sources */,
 				9E6C108F2C7CCE39001FB4C0 /* WelcomeView.swift in Sources */,
+				9EC4D7562C7E113200973375 /* WithHeaderView.swift in Sources */,
 				9E6C108D2C7CCE39001FB4C0 /* what2doApp.swift in Sources */,
 				9EC4D7542C7DDE8D00973375 /* CustomButton.swift in Sources */,
 			);

@@ -70,7 +70,16 @@
         }
       }
     },
-    "Hello, World!" : {
+    "Another child" : {
+
+    },
+    "Hello" : {
+
+    },
+    "Sign In View" : {
+
+    },
+    "Sign Up View" : {
 
     },
     "welcome" : {
