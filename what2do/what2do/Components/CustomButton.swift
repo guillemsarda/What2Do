@@ -9,20 +9,23 @@ import SwiftUI
 
 struct CustomButton<DestinationView: View>: View {
     var translationKey: String
-    var pageToNavigate: (DestinationView)?
     var color: Color
     var isSmall: Bool?
+    var onPress: (() -> Void)?
+    var pageToNavigate: (DestinationView)?
     @State private var triggerNavigation: Bool = false
     
-    init(translationKey: String, color: Color, destination: (DestinationView)? = nil, isSmall: Bool? = nil) {
+    init(translationKey: String, color: Color, destination: (DestinationView)? = nil, isSmall: Bool? = nil, onPress: (() -> Void)? = nil) {
         self.translationKey = translationKey
         self.pageToNavigate = destination
         self.color = color
         self.isSmall = isSmall
+        self.onPress = onPress
     }
     
     var body: some View {
         Button(action: {
+            self.onPress?()
             if self.pageToNavigate != nil {
                 triggerNavigation = true
                 return
@@ -52,6 +55,6 @@ struct CustomButton<DestinationView: View>: View {
 
 #Preview {
     NavigationStack {
-        CustomButton<EmptyView>(translationKey: "signIn", color: Color("SeaBlue"), isSmall: true)
+        CustomButton<EmptyView>(translationKey: "signIn", color: Color("SeaBlue"), isSmall: true, onPress: { print("Function Called") })
     }
 }

@@ -22,7 +22,6 @@ struct WithHeaderView<Children: View>: View {
     var body: some View {
         ZStack {
             ZStack {
-                
                 if hasArrow == true
                 {
                     Button (action: {
@@ -43,7 +42,7 @@ struct WithHeaderView<Children: View>: View {
             .padding(.top, 5)
             .zIndex(1)
             self.children
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

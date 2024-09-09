@@ -32,15 +32,17 @@ struct SignInView: View {
                     .frame(width: 250)
                     .cornerRadius(5)
                     .padding(.bottom, 10)
-                CustomButton(translationKey: "signIn", color: Color("ElectricBlue"), destination: EmptyView(), isSmall: true)
+                CustomButton<HomeView>(translationKey: "signIn", color: Color("ElectricBlue"), destination: HomeView(), isSmall: true)
             }
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 250, alignment: .center)
             .background(Color("LightBlue"))
             .cornerRadius(20)
-        }.navigationBarBackButtonHidden(true)
+        }
     }
 }
 
 #Preview {
-    SignInView()
+    NavigationStack {
+        SignInView()
+    }
 }
