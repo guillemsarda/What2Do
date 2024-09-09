@@ -8,23 +8,41 @@
 import SwiftUI
 
 struct WithHeaderView<Children: View>: View {
+    @Environment(\.dismiss) private var dismiss
     var translationKey: String
+    var hasArrow: Bool?
     let children: Children
     
-    init(translationKey: String, @ViewBuilder children: () -> Children) {
+    init(translationKey: String, hasArrow: Bool? = nil, @ViewBuilder children: () -> Children) {
         self.translationKey = translationKey
+        self.hasArrow = hasArrow
         self.children = children()
     }
     
     var body: some View {
         ZStack {
-            Text(LocalizedStringKey(self.translationKey))
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .zIndex(1)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                .padding([.top], 30)
-                self.children
+            ZStack {
+                
+                if hasArrow == true
+                {
+                    Button (action: {
+                        dismiss()
+                    }, label: {
+                        Image(systemName: "arrowshape.backward.fill")
+                            .foregroundColor(Color("ElectricBlue"))
+                    })
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 25)
+                }
+                Text(LocalizedStringKey(self.translationKey))
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .padding(.top, 5)
+            .zIndex(1)
+            self.children
         }
     }
 }
@@ -41,7 +59,7 @@ struct WithHeaderView<Children: View>: View {
 }
 
 #Preview {
-    WithHeaderView(translationKey: "welcome") {
+    WithHeaderView(translationKey: "signIn", hasArrow: true) {
         VStack {
             Text("Hello")
             Text("Another child")

@@ -12,7 +12,7 @@ struct SignInView: View {
     @State private var password: String = ""
     
     var body: some View {
-        WithHeaderView(translationKey: "signMeIn") {
+        WithHeaderView(translationKey: "signMeIn", hasArrow: true) {
             VStack {
                 Text("email")
                     .frame(width: 250, alignment: .leading)
@@ -37,7 +37,7 @@ struct SignInView: View {
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 250, alignment: .center)
             .background(Color("LightBlue"))
             .cornerRadius(20)
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

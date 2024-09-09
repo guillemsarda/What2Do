@@ -32,7 +32,7 @@ struct CustomButton<DestinationView: View>: View {
         {
             Text(LocalizedStringKey(self.translationKey))
                 .foregroundColor(.black)
-                .padding([.bottom, .top], isSmall == true ? 10 : 30)
+                .padding([.bottom, .top], isSmall == true ? 10 : 50)
                 .padding([.leading, .trailing], isSmall == true ? 40 : 50)
                 .background(
                     RoundedRectangle(cornerRadius: isSmall == true ? 15 : 20)
