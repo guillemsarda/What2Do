@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E597F992C903DED00274C9B /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E597F982C903DED00274C9B /* ApiService.swift */; };
+		9E597F9C2C90877600274C9B /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E597F9B2C90877600274C9B /* HttpClient.swift */; };
+		9E597F9F2C9091C600274C9B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E597F9E2C9091C600274C9B /* Event.swift */; };
 		9E6C108D2C7CCE39001FB4C0 /* what2doApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C108C2C7CCE39001FB4C0 /* what2doApp.swift */; };
 		9E6C108F2C7CCE39001FB4C0 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6C108E2C7CCE39001FB4C0 /* WelcomeView.swift */; };
 		9E6C10912C7CCE3A001FB4C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E6C10902C7CCE3A001FB4C0 /* Assets.xcassets */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E597F982C903DED00274C9B /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		9E597F9B2C90877600274C9B /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		9E597F9E2C9091C600274C9B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		9E6C10892C7CCE39001FB4C0 /* what2do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = what2do.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E6C108C2C7CCE39001FB4C0 /* what2doApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = what2doApp.swift; sourceTree = "<group>"; };
 		9E6C108E2C7CCE39001FB4C0 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -83,6 +89,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E597F972C903DD800274C9B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9E597F982C903DED00274C9B /* ApiService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9E597F9A2C90876100274C9B /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				9E597F9B2C90877600274C9B /* HttpClient.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		9E597F9D2C9091A600274C9B /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				9E597F9E2C9091C600274C9B /* Event.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
 		9E6C10802C7CCE39001FB4C0 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +136,9 @@
 		9E6C108B2C7CCE39001FB4C0 /* what2do */ = {
 			isa = PBXGroup;
 			children = (
+				9E597F9D2C9091A600274C9B /* DTOs */,
+				9E597F9A2C90876100274C9B /* Infrastructure */,
+				9E597F972C903DD800274C9B /* Services */,
 				9EC4D7522C7DDE4800973375 /* Components */,
 				9EC4D74B2C7DD74600973375 /* Screens */,
 				9E6C108C2C7CCE39001FB4C0 /* what2doApp.swift */,
@@ -298,8 +331,11 @@
 				9EA058A72C8F387E007481CE /* HomeView.swift in Sources */,
 				9EC4D74D2C7DD77600973375 /* SignInView.swift in Sources */,
 				9E6C108F2C7CCE39001FB4C0 /* WelcomeView.swift in Sources */,
+				9E597F9F2C9091C600274C9B /* Event.swift in Sources */,
+				9E597F9C2C90877600274C9B /* HttpClient.swift in Sources */,
 				9EC4D7562C7E113200973375 /* WithHeaderView.swift in Sources */,
 				9E6C108D2C7CCE39001FB4C0 /* what2doApp.swift in Sources */,
+				9E597F992C903DED00274C9B /* ApiService.swift in Sources */,
 				9EC4D7542C7DDE8D00973375 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

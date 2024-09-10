@@ -122,6 +122,9 @@
     "Hello" : {
 
     },
+    "Hello, World!" : {
+
+    },
     "name" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -190,9 +193,6 @@
           }
         }
       }
-    },
-    "Sign Up View" : {
-
     },
     "signIn" : {
       "extractionState" : "manual",
@@ -331,6 +331,9 @@
           }
         }
       }
+    },
+    "Type" : {
+
     },
     "typePlaceholder" : {
       "extractionState" : "manual",

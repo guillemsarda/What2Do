@@ -17,6 +17,11 @@ struct FormEntries {
 
 struct SignUpView: View {
     @State private var form = FormEntries()
+    private var apiService: ApiService
+    
+    init() {
+        self.apiService = ApiService()
+    }
     
     var body: some View {
         WithHeaderView(translationKey: "signMeUp", hasArrow: true) {
@@ -69,7 +74,11 @@ struct SignUpView: View {
                     .frame(width: 250)
                     .cornerRadius(5)
                     .padding(.bottom, 10)
-                CustomButton<HomeView>(translationKey: "signUp", color: Color("ElectricBlue"), destination: HomeView(), isSmall: true, onPress: {print(form)})
+                CustomButton<HomeView>(translationKey: "signUp", color: Color("ElectricBlue"), destination: HomeView(), isSmall: true, onPress: {
+                    Task {
+                        let test: [Event] = await self.apiService.getPrivateEvents()
+                    }
+                })
             }
             .padding(.vertical, 30)
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, alignment: .center)
