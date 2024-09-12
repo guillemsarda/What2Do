@@ -23,6 +23,14 @@ struct SignUpView: View {
         self.apiService = ApiService()
     }
     
+    func canSubmit() -> Bool {
+        let mirror = Mirror(reflecting: form)
+        return mirror.children.allSatisfy {label, value in
+            let formValue = value as! String
+            return !formValue.isEmpty
+        }
+    }
+    
     var body: some View {
         WithHeaderView(translationKey: "signMeUp", hasArrow: true) {
             VStack {
@@ -76,9 +84,10 @@ struct SignUpView: View {
                     .padding(.bottom, 10)
                 CustomButton<HomeView>(translationKey: "signUp", color: Color("ElectricBlue"), destination: HomeView(), isSmall: true, onPress: {
                     Task {
-                        let test: [Event] = await self.apiService.getPrivateEvents()
+                        await self.apiService.signUp(userInfo: form)
                     }
                 })
+                .disabled(!canSubmit())
             }
             .padding(.vertical, 30)
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, alignment: .center)
