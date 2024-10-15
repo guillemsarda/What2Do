@@ -70,9 +70,6 @@
         }
       }
     },
-    "Another child" : {
-
-    },
     "email" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -118,9 +115,6 @@
           }
         }
       }
-    },
-    "Hello" : {
-
     },
     "Hello, World!" : {
 

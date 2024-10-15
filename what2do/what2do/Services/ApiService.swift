@@ -7,7 +7,7 @@
 
 import Foundation
 
-let BASE_URL = ""
+let BASE_URL = ProcessInfo.processInfo.environment["API_URL"] ?? ""
 
 class ApiService {
     func signUp(userInfo: FormEntries) async {
