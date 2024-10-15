@@ -10,8 +10,13 @@ import Foundation
 let BASE_URL = ProcessInfo.processInfo.environment["API_URL"] ?? ""
 
 class ApiService {
-    func signUp(userInfo: FormEntries) async -> Bool {
-        guard let data = try? await HttpClient.post(requestUrl: "\(BASE_URL)/users", requestBody: userInfo ) else { return false }
+    func signUp(userInfo: SignUpFormEntries) async -> Bool {
+        guard (try? await HttpClient.post(requestUrl: "\(BASE_URL)/users", requestBody: userInfo )) != nil else { return false }
+        return true
+    }
+    
+    func signIn(userLoginInfo: SignInFormEntries) async -> Bool {
+        guard (try? await HttpClient.post(requestUrl: "\(BASE_URL)/user-login", requestBody: userLoginInfo)) != nil else { return false }
         return true
     }
     

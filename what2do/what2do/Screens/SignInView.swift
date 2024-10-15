@@ -7,16 +7,34 @@
 
 import SwiftUI
 
+struct SignInFormEntries: Codable {
+    var email: String = ""
+    var password: String = ""
+}
+
 struct SignInView: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @State private var form = SignInFormEntries()
+    private var apiService: ApiService
+    
+    init() {
+        self.apiService = ApiService()
+    }
+    
+    func canSubmit() -> Bool {
+        let mirror = Mirror(reflecting: form)
+        return mirror.children.allSatisfy {label, value in
+            let formValue = value as! String
+            return !formValue.isEmpty
+        }
+    }
     
     var body: some View {
         WithHeaderView(translationKey: "signMeIn", hasArrow: true) {
             VStack {
                 Text("email")
                     .frame(width: 250, alignment: .leading)
-                TextField("email", text: $email)
+                TextField("", text: $form.email, prompt: Text(verbatim: "name@mail.com"))
+                    .textInputAutocapitalization(.never)
                     .padding(.vertical, 5)
                     .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                     .background(.white)
@@ -25,14 +43,19 @@ struct SignInView: View {
                     .padding(.bottom, 10)
                 Text("password")
                     .frame(width: 250, alignment: .leading)
-                TextField("password", text: $password)
+                SecureField("password", text: $form.password)
                     .padding(.vertical, 5)
                     .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
                     .background(.white)
                     .frame(width: 250)
                     .cornerRadius(5)
                     .padding(.bottom, 10)
-                CustomButton<HomeView>(translationKey: "signIn", color: Color("ElectricBlue"), destination: HomeView(), isSmall: true)
+                CustomButton<HomeView>(translationKey: "signIn", color: Color("ElectricBlue"), destination: HomeView(), isSmall: true, onPress: {
+                    Task {
+                        return await self.apiService.signIn(userLoginInfo: form)
+                    }
+                })
+                    .disabled(!canSubmit())
             }
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 250, alignment: .center)
             .background(Color("LightBlue"))

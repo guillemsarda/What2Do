@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FormEntries: Codable {
+struct SignUpFormEntries: Codable {
     var name: String = ""
     var surname: String = ""
     var type: String = ""
@@ -16,7 +16,7 @@ struct FormEntries: Codable {
 }
 
 struct SignUpView: View {
-    @State private var form = FormEntries()
+    @State private var form = SignUpFormEntries()
     private var apiService: ApiService
     
     init() {
