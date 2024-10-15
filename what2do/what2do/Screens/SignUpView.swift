@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FormEntries {
+struct FormEntries: Codable {
     var name: String = ""
     var surname: String = ""
     var type: String = ""

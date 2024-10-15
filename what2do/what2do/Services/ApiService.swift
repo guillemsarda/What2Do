@@ -10,9 +10,9 @@ import Foundation
 let BASE_URL = ProcessInfo.processInfo.environment["API_URL"] ?? ""
 
 class ApiService {
-    func signUp(userInfo: FormEntries) async {
-        let codable: Codable = ""
-        guard let data = try? await HttpClient.post(requestUrl: "\(BASE_URL)/users", requestBody: codable) else { return }
+    func signUp(userInfo: FormEntries) async -> Bool {
+        guard let data = try? await HttpClient.post(requestUrl: "\(BASE_URL)/users", requestBody: userInfo ) else { return false }
+        return true
     }
     
     func getPrivateEvents() async -> [Event] {
