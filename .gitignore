@@ -2,3 +2,4 @@ node_modules
 .dbdata
 .env
 .idea
+.DS_Store

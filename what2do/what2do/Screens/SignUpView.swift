@@ -66,6 +66,7 @@ struct SignUpView: View {
                 .padding(.bottom, 10)
                 Text("email")
                     .frame(width: 250, alignment: .leading)
+                    .textCase(.lowercase)
                 TextField("email", text: $form.email)
                     .padding(.vertical, 5)
                     .padding(EdgeInsets(top: 0, leading: 6, bottom: 0, trailing: 6))
