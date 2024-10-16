@@ -31,7 +31,6 @@ struct HttpClient {
     static func post<T: Codable>(requestUrl: String, requestBody: T) async throws -> Data {
         guard let url = URL(string: requestUrl) else { throw URLError(.badURL) }
         
-        print("ERR")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

@@ -51,11 +51,9 @@ struct SignInView: View {
                     .cornerRadius(5)
                     .padding(.bottom, 10)
                 CustomButton<HomeView>(translationKey: "signIn", color: Color("ElectricBlue"), destination: HomeView(), isSmall: true, onPress: {
-                    Task {
-                        return await self.apiService.signIn(userLoginInfo: form)
-                    }
+                   await self.apiService.signIn(userLoginInfo: form)
                 })
-                    .disabled(!canSubmit())
+                .disabled(!canSubmit())
             }
             .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: 300, minHeight: 0, maxHeight: 250, alignment: .center)
             .background(Color("LightBlue"))

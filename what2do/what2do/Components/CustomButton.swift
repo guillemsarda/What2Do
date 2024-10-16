@@ -11,11 +11,11 @@ struct CustomButton<DestinationView: View>: View {
     var translationKey: String
     var color: Color
     var isSmall: Bool?
-    var onPress: (() -> Void)?
+    var onPress: (() async -> Bool?)?
     var pageToNavigate: (DestinationView)?
     @State private var triggerNavigation: Bool = false
     
-    init(translationKey: String, color: Color, destination: (DestinationView)? = nil, isSmall: Bool? = nil, onPress: (() -> Void)? = nil) {
+    init(translationKey: String, color: Color, destination: (DestinationView)? = nil, isSmall: Bool? = nil, onPress: (() async -> Bool?)? = nil) {
         self.translationKey = translationKey
         self.pageToNavigate = destination
         self.color = color
@@ -25,12 +25,14 @@ struct CustomButton<DestinationView: View>: View {
     
     var body: some View {
         Button(action: {
-            self.onPress?()
-            if self.pageToNavigate != nil {
-                triggerNavigation = true
-                return
+            Task {
+                let canNavigate = await self.onPress?() ?? true
+                if self.pageToNavigate != nil && canNavigate {
+                    triggerNavigation = canNavigate
+                    return
+                }
+                print("Did not navigate")
             }
-            print("Did not navigate")
         })
         {
             Text(LocalizedStringKey(self.translationKey))
@@ -55,6 +57,9 @@ struct CustomButton<DestinationView: View>: View {
 
 #Preview {
     NavigationStack {
-        CustomButton<EmptyView>(translationKey: "signIn", color: Color("SeaBlue"), isSmall: true, onPress: { print("Function Called") })
+        CustomButton<EmptyView>(translationKey: "signIn", color: Color("SeaBlue"), isSmall: true, onPress: {
+            print("Function Called")
+            return true
+        })
     }
 }

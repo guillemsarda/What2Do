@@ -84,9 +84,11 @@ struct SignUpView: View {
                     .cornerRadius(5)
                     .padding(.bottom, 10)
                 CustomButton<HomeView>(translationKey: "signUp", color: Color("ElectricBlue"), destination: HomeView(), isSmall: true, onPress: {
+                    var canNavigate: Bool = false
                     Task {
-                        await self.apiService.signUp(userInfo: form)
+                        canNavigate = await self.apiService.signUp(userInfo: form)
                     }
+                    return canNavigate
                 })
                 .disabled(!canSubmit())
             }
